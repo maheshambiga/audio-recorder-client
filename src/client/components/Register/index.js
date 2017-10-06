@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import RegisterUserForm from './../Register';
+import RegisterUserForm from './RegisterUser';
 import SocialSignup from './../../containers/SocialSingup';
 import Loader from '../common/Loader';
 

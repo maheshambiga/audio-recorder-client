@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 
 import FacebookLogin from 'react-facebook-login';
-import {setStorage} from './../../containers/App/actions';
 
-const SocialSignup = ({setAuthInfo}) => {
+
+const SocialSignup = ({authenticateUser}) => {
   const onGoogleSignInSuccssHandler = (response)=>{
-    console.log('onGoogleSignInSuccssHandler-', response);
-    setStorage('token',response.accessToken);
-    setAuthInfo({isLoggedIn:true, token:response.accessToken});
+
+    const {email, familyName, givenName, googleId, imageUrl, name}  = response.profileObj;
+    authenticateUser({
+
+      "id": googleId,
+      "name": name,
+      "imageUrl": imageUrl,
+      "email": email,
+      "type":"google"
+    });
   };
   const onGoogleSignInFailureHandler = (response)=>{
     console.log('onGoogleSignInFailureHandler-', response);
@@ -17,9 +24,17 @@ const SocialSignup = ({setAuthInfo}) => {
     console.log('onFacebookClickHandler-', response);
   };
   const onFacebookSignInSuccssHandler = (response)=>{
-    console.log('onFacebookSignInSuccssHandler-', response.accessToken);
-    setStorage('token',response.accessToken);
-    setAuthInfo({isLoggedIn:true, token:response.accessToken});
+
+
+    const {email, userID, picture, name}  = response;
+    authenticateUser({
+
+      "id": userID,
+      "name": name,
+      "imageUrl": picture.data.url,
+      "email": email,
+      "type":"facebook"
+    });
   };
   return (<div>
     <GoogleLogin onSuccess={onGoogleSignInSuccssHandler}

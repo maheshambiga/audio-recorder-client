@@ -42,7 +42,7 @@ export const authenticateUserAPI = (data) => {
   });
 };
 
-export const authenticateUser = (userData, type) => {
+export const authenticateUser = (userData) => {
   return (dispatch) => {
     dispatch(loginUser());
     authenticateUserAPI(userData).then((res) => {

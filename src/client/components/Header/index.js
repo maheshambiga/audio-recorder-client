@@ -14,14 +14,16 @@ class Header extends Component {
   }
 
   render() {
-
+    const {authInfo} = this.props;
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
             <Link className="navbar-brand" href="/">Mesh</Link>
           </div>
-
+          {authInfo.isLoggedIn && <div className="navbar-right">
+            <UserProfile />
+          </div>}
 
         </div>
       </nav>
