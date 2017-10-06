@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.etmp/
+.gitignore
+.idea/
+node_modules/
+npm-debug.log
+

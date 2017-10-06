@@ -1,8 +1,6 @@
-# mesh-commerce 
+# story-telling app
 
-Mesh web portal
 
-Mesh Commerce React Boilerplate was extracted from[electrode.io](https://github.com/electrode-io/electrode)
 
 ## engines
 

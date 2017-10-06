@@ -1,0 +1,11 @@
+---
+extends:
+  - "../../node_modules/electrode-archetype-react-app-dev/config/eslint/.eslintrc-react"
+
+rules:
+  filenames/match-regex: [ 1 , "([a-zA-Z][a-z0-9]+)+" ,true ]
+  filenames/match-exported: [ 1, [ null,"pascal","camel" ] ]
+  quotes:
+      - 2
+      - single
+  react/prop-types: 1

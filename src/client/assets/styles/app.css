@@ -1,0 +1,238 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #343a40;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mesh-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+
+.pure-img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.width-100 {
+  width: 100%;
+
+}
+
+
+
+.mesh-header a {
+  color: #fff;
+  text-shadow: none;
+}
+
+.mesh-header .nav > li > a:hover,
+.mesh-header .nav > li > a:focus,
+.mesh-header a:hover,
+.mesh-header a:focus {
+  background-color: #fefefe;
+  color: #000;
+}
+
+
+
+.mesh-header .navbar-toggle {
+  background-color: #fff;
+  margin-left: 10px;
+}
+
+.mesh-header .navbar-toggle .icon-bar {
+  background-color: #333;
+}
+
+.zero-results {
+  display: block;
+  padding: 12%;
+  text-align: center;
+  margin: 5%;
+  background-color: #f5f5f5;
+}
+
+/* classes to change display type. */
+.displayInline {
+  display: inline;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+}
+
+.displayNone {
+  display: none
+}
+
+.marginAuto {
+  margin: auto;
+}
+
+.textUnderline {
+  text-decoration-line: underline;
+}
+
+
+
+.navbar-form .searchBarField {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .searchBar {
+    float: none;
+  }
+
+
+  .body-container {
+    margin-top: 150px;
+
+  }
+
+}
+
+@media (min-width: 768px) {
+  .searchBar {
+    float: right;
+  }
+
+
+
+  .body-container {
+    margin-top: 80px;
+
+  }
+}
+
+.overFlowWrap {
+  overflow-wrap: break-word;
+}
+
+.clearFloat{
+  clear: both;
+}
+/*custom css*/
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  margin: 0.2em;
+  padding: 0 15px 0 46px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 16px;
+  color: #FFF;
+}
+.loginBtn:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 100%;
+}
+.loginBtn:focus {
+  outline: none;
+}
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+}
+
+
+/* Facebook */
+
+.loginBtn.m-facebook {
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 #354C8C;
+}
+.loginBtn.m-facebook:before {
+  border-right: #364e92 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
+}
+.loginBtn.m-facebook:hover,
+.loginBtn.m-facebook:focus {
+  background-color: #5B7BD5;
+  background-image: linear-gradient(#5B7BD5, #4864B1);
+}
+
+
+/* Google */
+.loginBtn.m-google {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #DD4B39;
+}
+.loginBtn.m-google:before {
+  border-right: #BB3F30 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_google.png') 6px 6px no-repeat;
+}
+.loginBtn.m-google:hover,
+.loginBtn.m-google:focus {
+  background: #E74B37;
+}
+
+/*profile picture*/
+.profileImage{
+  display: block;
+  background-size: 100%;
+  border-radius: 68px;
+  box-shadow: none;
+  cursor: pointer;
+  float: left;
+  height: 30px;
+  position: relative;
+  overflow: hidden;
+  width: 30px;
+}
