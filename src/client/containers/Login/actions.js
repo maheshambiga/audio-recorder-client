@@ -34,7 +34,6 @@ export const invalidateUserLogin = () => {
 
 
 export const authenticateUserAPI = (data) => {
-
   return axios({
     method: 'post',
     url: `http://localhost:3000/api/v1/login`,
@@ -42,20 +41,24 @@ export const authenticateUserAPI = (data) => {
   });
 };
 
+export const authenticate = (dispatch, userData)=> {
+  dispatch(loginUser());
+  authenticateUserAPI(userData).then((res) => {
+    if (res.data.success === true) {
+      const token = res.headers["x-auth-token"];
+      setStorage('token',res.headers["x-auth-token"]);
+      dispatch(setAuthInfo({isLoggedIn:true, token}));
+
+    }
+    dispatch(loginUserSuccess(res));
+  }).catch((err) => {
+    dispatch(loginUserFailure(err));
+    console.warn('Error while logging in.', err);
+  });
+};
+
 export const authenticateUser = (userData) => {
   return (dispatch) => {
-    dispatch(loginUser());
-    authenticateUserAPI(userData).then((res) => {
-      if (res.data.success === true) {
-        const token = res.headers["x-auth-token"];
-        setStorage('token',res.headers["x-auth-token"]);
-        dispatch(setAuthInfo({isLoggedIn:true, token}));
-
-      }
-      dispatch(loginUserSuccess(res));
-    }).catch((err) => {
-      dispatch(loginUserFailure(err));
-      console.warn('Error while logging in.', err);
-    });
+    authenticate(dispatch, userData);
   };
 };

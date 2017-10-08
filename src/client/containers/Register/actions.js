@@ -33,6 +33,7 @@ export const invalidateUserRegister = () => {
 
 export const registerUserAPI = ({email, firstName, lastName, password}) => {
   const data = {
+    type:0,//local registration
     name: `${firstName} ${lastName}`,
     email,
     password,

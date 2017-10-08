@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 
 import FacebookLogin from 'react-facebook-login';
+import {GOOGLE,FACEBOOK} from './../../containers/SocialSingup/constants';
 
-
-const SocialSignup = ({authenticateUser}) => {
+const SocialSignup = ({registerUser}) => {
   const onGoogleSignInSuccssHandler = (response)=>{
 
     const {email, familyName, givenName, googleId, imageUrl, name}  = response.profileObj;
-    authenticateUser({
+    registerUser({
 
       "id": googleId,
-      "name": name,
-      "imageUrl": imageUrl,
-      "email": email,
-      "type":"google"
+      name,
+      imageUrl,
+      email,
+      "type":GOOGLE,
+      token:response.accessToken
     });
   };
   const onGoogleSignInFailureHandler = (response)=>{
@@ -26,14 +27,15 @@ const SocialSignup = ({authenticateUser}) => {
   const onFacebookSignInSuccssHandler = (response)=>{
 
 
-    const {email, userID, picture, name}  = response;
-    authenticateUser({
+    const {email, userID, picture, name, accessToken}  = response;
+    registerUser({
 
       "id": userID,
-      "name": name,
+      name,
       "imageUrl": picture.data.url,
-      "email": email,
-      "type":"facebook"
+      email,
+      "type":FACEBOOK,
+      token: accessToken
     });
   };
   return (<div>

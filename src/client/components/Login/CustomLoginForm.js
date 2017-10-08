@@ -69,7 +69,7 @@ const CustomLogin = ({handleSubmit, valid, submitting, result, authenticateUser}
           disabled={!valid || submitting}
           onClick={
             handleSubmit(data => {
-              authenticateUser(data);
+              authenticateUser(Object.assign({}, data, {type:0}));
             })}
         >
           Sign In

@@ -19,7 +19,7 @@ class Header extends Component {
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
-            <Link className="navbar-brand" href="/">Mesh</Link>
+            <Link className="navbar-brand" href="/">Storyscape</Link>
           </div>
           {authInfo.isLoggedIn && <div className="navbar-right">
             <UserProfile />
