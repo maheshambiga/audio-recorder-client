@@ -25,7 +25,7 @@ module.exports = {
     'webapp': {
       'module': 'electrode-react-webapp/lib/express',
       'options': {
-        'pageTitle': 'Mesh Commerce',
+        'pageTitle': 'Storyscape',
         'paths': {
           '*': {
             'content': {

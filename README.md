@@ -39,9 +39,10 @@
 
 ##### Setup
 Install all the dependencies and dev-dependencies listed in package.json.
+Install CLI invoker for the xclap Javascript task executor and build tool.
 
      $ npm install
-
+     $ npm install -g xclap-cli
 
 ##### Running Dev build
 After the app's been created and npm install completed, you can start the app in dev mode:
