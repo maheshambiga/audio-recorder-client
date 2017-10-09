@@ -12,174 +12,190 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+import { drawBuffer } from './AudioDisplay';
+import { Recorder } from './recorderjs/recorder';
 
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
+export class Main {
+  constructor () {
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
-var audioContext = new AudioContext();
-var audioInput = null,
-  realAudioInput = null,
-  inputPoint = null,
-  audioRecorder = null;
-var rafID = null;
-var analyserContext = null;
-var canvasWidth, canvasHeight;
-var recIndex = 0;
+    this.audioContext = new AudioContext();
+    this.audioInput = null;
 
-/* TODO:
+    this.realAudioInput = null;
+    this.inputPoint = null;
+    this.audioRecorder = null;
+    this.rafID = null;
+    this.analyserContext = null;
+    this.canvasWidth = 0;
+    this.canvasHeight = 0;
+    this.recIndex = 0;
+    this.analyserNode = null;
 
-- offer mono option
-- "Monitor input" switch
-*/
-
-function saveAudio() {
-  audioRecorder.exportWAV( doneEncoding );
-  // could get mono instead by saying
-  // audioRecorder.exportMonoWAV( doneEncoding );
-}
-
-function gotBuffers( buffers ) {
-  var canvas = document.getElementById( "wavedisplay" );
-
-  drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-
-  // the ONLY time gotBuffers is called is right after a new recording is completed -
-  // so here's where we should set up the download.
-  audioRecorder.exportWAV( doneEncoding );
-}
-
-function doneEncoding( blob ) {
-  Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
-  recIndex++;
-}
-
-function toggleRecording( e ) {
-  if (e.classList.contains("recording")) {
-    // stop recording
-    audioRecorder.stop();
-    e.classList.remove("recording");
-    audioRecorder.getBuffers( gotBuffers );
-  } else {
-    // start recording
-    if (!audioRecorder)
-      return;
-    e.classList.add("recording");
-    audioRecorder.clear();
-    audioRecorder.record();
-  }
-}
-
-function convertToMono( input ) {
-  var splitter = audioContext.createChannelSplitter(2);
-  var merger = audioContext.createChannelMerger(2);
-
-  input.connect( splitter );
-  splitter.connect( merger, 0, 0 );
-  splitter.connect( merger, 0, 1 );
-  return merger;
-}
-
-function cancelAnalyserUpdates() {
-  window.cancelAnimationFrame( rafID );
-  rafID = null;
-}
-
-function updateAnalysers(time) {
-  if (!analyserContext) {
-    var canvas = document.getElementById("analyser");
-    canvasWidth = canvas.width;
-    canvasHeight = canvas.height;
-    analyserContext = canvas.getContext('2d');
+    this.audioRecorder = null;
+    this.blob = null;//audio content
   }
 
-  // analyzer draw code here
-  {
-    var SPACING = 3;
-    var BAR_WIDTH = 1;
-    var numBars = Math.round(canvasWidth / SPACING);
-    var freqByteData = new Uint8Array(analyserNode.frequencyBinCount);
+  saveAudio () {
+    this.audioRecorder.exportWAV(this.doneEncoding.bind(this));
+    // could get mono instead by saying
+    // audioRecorder.exportMonoWAV( doneEncoding );
+  }
 
-    analyserNode.getByteFrequencyData(freqByteData);
+  gotBuffers (buffers) {
+    const canvas = document.getElementById('wavedisplay');
 
-    analyserContext.clearRect(0, 0, canvasWidth, canvasHeight);
-    analyserContext.fillStyle = '#F6D565';
-    analyserContext.lineCap = 'round';
-    var multiplier = analyserNode.frequencyBinCount / numBars;
+    /*drawBuffer(canvas.width, canvas.height, canvas.getContext('2d'),
+      buffers[0]);*/
+    console.log("gotBuffers-->", buffers);
+    // the ONLY time gotBuffers is called is right after a new recording is completed -
+    // so here's where we should set up the download.
+    this.audioRecorder.exportWAV(this.doneEncoding.bind(this));
+  }
 
-    // Draw rectangle for each frequency bin.
-    for (var i = 0; i < numBars; ++i) {
-      var magnitude = 0;
-      var offset = Math.floor( i * multiplier );
-      // gotta sum/average the block, or we miss narrow-bandwidth spikes
-      for (var j = 0; j< multiplier; j++)
-        magnitude += freqByteData[offset + j];
-      magnitude = magnitude / multiplier;
-      var magnitude2 = freqByteData[i * multiplier];
-      analyserContext.fillStyle = "hsl( " + Math.round((i*360)/numBars) + ", 100%, 50%)";
-      analyserContext.fillRect(i * SPACING, canvasHeight, BAR_WIDTH, -magnitude);
+  doneEncoding (blob) {
+    //Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+    this.blob = blob;
+    console.log("doneEncoding-->", blob);
+    this.recIndex++;
+  }
+
+  stopRecording () {
+    this.audioRecorder.stop();
+
+    this.audioRecorder.getBuffers(this.gotBuffers.bind(this));
+  }
+
+  startRecording () {
+    this.blob = null;//clear blob for new recording
+    this.audioRecorder.clear();
+    this.audioRecorder.record();
+  }
+
+  convertToMono (input) {
+    const splitter = this.audioContext.createChannelSplitter(2);
+    const merger = this.audioContext.createChannelMerger(2);
+
+    input.connect(splitter);
+    splitter.connect(merger, 0, 0);
+    splitter.connect(merger, 0, 1);
+    return merger;
+  }
+
+  cancelAnalyserUpdates () {
+    window.cancelAnimationFrame(this.rafID);
+    this.rafID = null;
+  }
+
+  updateAnalysers (time) {
+    if (!this.analyserContext) {
+      let canvas = document.getElementById('analyser');
+      this.canvasWidth = canvas.width;
+      this.canvasHeight = canvas.height;
+      this.analyserContext = canvas.getContext('2d');
     }
+
+    // analyzer draw code here
+    {
+      const SPACING = 3;
+      const BAR_WIDTH = 1;
+      const numBars = Math.round(this.canvasWidth / SPACING);
+      const freqByteData = new Uint8Array(this.analyserNode.frequencyBinCount);
+
+      this.analyserNode.getByteFrequencyData(freqByteData);
+
+      this.analyserContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+      this.analyserContext.fillStyle = '#F6D565';
+      this.analyserContext.lineCap = 'round';
+      const multiplier = this.analyserNode.frequencyBinCount / numBars;
+
+      // Draw rectangle for each frequency bin.
+      for (let i = 0; i < numBars; ++i) {
+        let magnitude = 0;
+        const offset = Math.floor(i * multiplier);
+        // gotta sum/average the block, or we miss narrow-bandwidth spikes
+        for (let j = 0; j < multiplier; j++)
+          magnitude += freqByteData[offset + j];
+        magnitude = magnitude / multiplier;
+        const magnitude2 = freqByteData[i * multiplier];
+        this.analyserContext.fillStyle = 'hsl( ' +
+          Math.round((i * 360) / numBars) + ', 100%, 50%)';
+        this.analyserContext.fillRect(i * SPACING, this.canvasHeight, BAR_WIDTH,
+          -magnitude);
+      }
+    }
+
+    this.rafID = window.requestAnimationFrame(this.updateAnalysers.bind(this));
   }
 
-  rafID = window.requestAnimationFrame( updateAnalysers );
-}
+  toggleMono () {
+    if (this.audioInput != this.realAudioInput) {
+      this.audioInput.disconnect();
+      this.realAudioInput.disconnect();
+      this.audioInput = this.realAudioInput;
+    } else {
+      this.realAudioInput.disconnect();
+      this.audioInput = this.convertToMono(realAudioInput);
+    }
 
-function toggleMono() {
-  if (audioInput != realAudioInput) {
-    audioInput.disconnect();
-    realAudioInput.disconnect();
-    audioInput = realAudioInput;
-  } else {
-    realAudioInput.disconnect();
-    audioInput = convertToMono( realAudioInput );
+    this.audioInput.connect(this.inputPoint);
   }
 
-  audioInput.connect(inputPoint);
-}
+  gotStream (stream) {
+    console.log(this);
+    this.inputPoint = this.audioContext.createGain();
 
-function gotStream(stream) {
-  inputPoint = audioContext.createGain();
-
-  // Create an AudioNode from the stream.
-  realAudioInput = audioContext.createMediaStreamSource(stream);
-  audioInput = realAudioInput;
-  audioInput.connect(inputPoint);
+    // Create an AudioNode from the stream.
+    this.realAudioInput = this.audioContext.createMediaStreamSource(stream);
+    this.audioInput = this.realAudioInput;
+    this.audioInput.connect(this.inputPoint);
 
 //    audioInput = convertToMono( input );
 
-  analyserNode = audioContext.createAnalyser();
-  analyserNode.fftSize = 2048;
-  inputPoint.connect( analyserNode );
-var Recorder = window.Recorder;
-  audioRecorder = new Recorder( inputPoint );
+    this.analyserNode = this.audioContext.createAnalyser();
+    this.analyserNode.fftSize = 2048;
+    this.inputPoint.connect(this.analyserNode);
 
-  zeroGain = audioContext.createGain();
-  zeroGain.gain.value = 0.0;
-  inputPoint.connect( zeroGain );
-  zeroGain.connect( audioContext.destination );
-  updateAnalysers();
+    this.audioRecorder = new Recorder(this.inputPoint);
+
+    const zeroGain = this.audioContext.createGain();
+    zeroGain.gain.value = 0.0;
+    this.inputPoint.connect(zeroGain);
+    zeroGain.connect(this.audioContext.destination);
+    this.updateAnalysers();
+  }
+
+  initAudio () {
+
+    if (!navigator.getUserMedia)
+      navigator.getUserMedia = navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia;
+    if (!navigator.cancelAnimationFrame)
+      navigator.cancelAnimationFrame = navigator.webkitCancelAnimationFrame ||
+        navigator.mozCancelAnimationFrame;
+    if (!navigator.requestAnimationFrame)
+      navigator.requestAnimationFrame = navigator.webkitRequestAnimationFrame ||
+        navigator.mozRequestAnimationFrame;
+
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia(
+        {
+          'audio': {
+            'mandatory': {
+              'googEchoCancellation': 'false',
+              'googAutoGainControl': 'false',
+              'googNoiseSuppression': 'false',
+              'googHighpassFilter': 'false',
+            },
+            'optional': [],
+          },
+        }, this.gotStream.bind(this), function (err) {
+          alert('Error getting audio', err.name);
+
+        });
+    }
+
+  }
+
+
 }
-
-function initAudio() {
-  if (!navigator.getUserMedia)
-    navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-  if (!navigator.cancelAnimationFrame)
-    navigator.cancelAnimationFrame = navigator.webkitCancelAnimationFrame || navigator.mozCancelAnimationFrame;
-  if (!navigator.requestAnimationFrame)
-    navigator.requestAnimationFrame = navigator.webkitRequestAnimationFrame || navigator.mozRequestAnimationFrame;
-
-  navigator.getUserMedia(
-    {
-      "audio": {
-        "mandatory": {
-          "googEchoCancellation": "false",
-          "googAutoGainControl": "false",
-          "googNoiseSuppression": "false",
-          "googHighpassFilter": "false"
-        },
-        "optional": []
-      },
-    }, gotStream, function(e) {
-      alert('Error getting audio');
-      console.log(e);
-    });
-}
-

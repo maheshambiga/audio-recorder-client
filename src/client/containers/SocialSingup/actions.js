@@ -29,16 +29,6 @@ export const registerUser = (userData) => {
     registerUserAPI(userData).then((res) => {
       if (res.data.success === true) {
 
-        /*authenticateUserAPI({email, type, password:token}).then((res)=>{
-          if (res.data.success === true) {
-            const token = res.headers["x-auth-token"];
-            setStorage('token',res.headers["x-auth-token"]);
-            dispatch(setAuthInfo({isLoggedIn:true, token}));
-
-          }
-        }).catch((err)=>{
-          console.warn('Error while logging in.', err);
-        })*/
         authenticate(dispatch, {email, type, password:token});
       }
 
