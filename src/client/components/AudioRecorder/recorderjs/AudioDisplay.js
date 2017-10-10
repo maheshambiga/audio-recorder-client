@@ -6,7 +6,7 @@ export function drawBuffer( width, height, context, data ) {
   for(let i=0; i < width; i++){
     let min = 1.0;
     let max = -1.0;
-    for (j=0; j<step; j++) {
+    for (let j=0; j<step; j++) {
       const datum = data[(i*step)+j];
       if (datum < min)
         min = datum;

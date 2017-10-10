@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 import {
   USER_PROFILE_REQUEST,
   USER_PROFILE_SUCCESS,
@@ -49,6 +50,7 @@ export const getUserProfile = () => {
 
     }).catch((err) => {
       dispatch(failureUserProfile());
+      browserHistory.push('/login');
       console.warn('Error while logging in.', err);
     });
   };

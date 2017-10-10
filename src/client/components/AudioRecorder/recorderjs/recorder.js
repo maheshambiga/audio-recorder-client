@@ -50,7 +50,7 @@ export class Recorder {
       const MyWorker = require(`worker-loader!./recorderworker`);
       this.worker = new MyWorker();
     }else{//work around to load cross origin worker
-      var url = 'http://localhost:2992/js/664571de366d86a9906c.worker.js';
+      var url = 'http://localhost:2992/js/d1336d9f6e2d0af8f7ac.worker.js';
       var response;
 
       var get = new XMLHttpRequest();

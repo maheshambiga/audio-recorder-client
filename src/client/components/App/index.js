@@ -19,7 +19,7 @@ class AppComp extends Component{
       this.props.setAuthInfo({isLoggedIn:true, token:token});
     }else{
       //redirect to login page if token does not exist in the local storage
-      browserHistory.push('/login');
+      //browserHistory.push('/login');
     }
   }
 

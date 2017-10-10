@@ -13,7 +13,7 @@
    limitations under the License.
 */
 import { drawBuffer } from './AudioDisplay';
-import { Recorder } from './recorderjs/recorder';
+import { Recorder } from './recorder';
 
 export class Main {
   constructor () {
@@ -34,6 +34,8 @@ export class Main {
 
     this.audioRecorder = null;
     this.blob = null;//audio content
+    //blob notifier
+    this.callback = null;
   }
 
   saveAudio () {
@@ -43,11 +45,11 @@ export class Main {
   }
 
   gotBuffers (buffers) {
-    const canvas = document.getElementById('wavedisplay');
-
-    /*drawBuffer(canvas.width, canvas.height, canvas.getContext('2d'),
+    /*const canvas = document.getElementById('wavedisplay');
+    drawBuffer(canvas.width, canvas.height, canvas.getContext('2d'),
       buffers[0]);*/
     console.log("gotBuffers-->", buffers);
+
     // the ONLY time gotBuffers is called is right after a new recording is completed -
     // so here's where we should set up the download.
     this.audioRecorder.exportWAV(this.doneEncoding.bind(this));
@@ -57,10 +59,13 @@ export class Main {
     //Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     this.blob = blob;
     console.log("doneEncoding-->", blob);
+
+    this.callback(blob);
     this.recIndex++;
   }
 
-  stopRecording () {
+  stopRecording (cb) {
+    this.callback = cb;
     this.audioRecorder.stop();
 
     this.audioRecorder.getBuffers(this.gotBuffers.bind(this));
@@ -70,6 +75,7 @@ export class Main {
     this.blob = null;//clear blob for new recording
     this.audioRecorder.clear();
     this.audioRecorder.record();
+
   }
 
   convertToMono (input) {
