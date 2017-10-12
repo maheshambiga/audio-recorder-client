@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setAuthInfo,setStorage} from './../App/actions';
+import {setAuthInfo,setStorage, clearStorage} from './../App/actions';
 import {
   INVALIDATE_LOGIN_USER,
   LOGIN_USER_FAILURE,
@@ -52,6 +52,7 @@ export const authenticate = (dispatch, userData)=> {
     }
     dispatch(loginUserSuccess(res));
   }).catch((err) => {
+    clearStorage('token');
     dispatch(loginUserFailure(err));
     console.warn('Error while logging in.', err);
   });

@@ -1,70 +1,72 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
-import { Main } from './recorderjs/main';
-
+import StoryForm from './StoryForm';
+import Main from './recorderjs/main';
 class AudioRecorder extends Component {
   constructor (props) {
     super(props);
     this.main = new Main();
 
-    this.state = {isRecording: false};
+    this.state = {isRecording: false, showForm:false, audioBlob:''};
 
-    this.onToggleRecord = this.onToggleRecord.bind(this);
+    this.onToggleRecording = this.onToggleRecording.bind(this);
+    this.onCancelRecording = this.onCancelRecording.bind(this);
+    this.onStorySubmitHandler = this.onStorySubmitHandler.bind(this);
   }
 
   componentDidMount () {
-
     window.addEventListener('load', this.main.initAudio.bind(this.main));
   }
 
-  blobToBase64 (blob, cb) {
-    const reader = new FileReader();
-    reader.onload = function () {
-      const dataUrl = reader.result;
-      const base64 = dataUrl.split(',')[1];
-      cb(base64);
-    };
-    reader.readAsDataURL(blob);
-  }
-
-  onToggleRecord () {
+  onToggleRecording () {
 
     if (this.state.isRecording) {
-      this.main.stopRecording((blob) => {
+      this.setState({showForm:true});
 
-        this.blobToBase64(blob, (base64) => {
+      this.main.stopRecording((blob)=>{
 
-          const update = {'blob': base64, name: 'first story', genre: 'funny'};
-          axios({
-            method: 'post',
-            data: update,
-            url: 'http://localhost:3000/api/v1/upload',
-          }).then((res) => {
-            console.log(res.data);
-          });
-        });
+        this.setState({audioBlob:blob});
 
       });
+
     } else {
       this.main.startRecording();
+      this.setState({isRecording: true});
     }
 
-    this.setState({isRecording: !this.state.isRecording});
 
+
+  }
+  onCancelRecording(){
+    this.setState({isRecording: false, showForm:false, audioBlob:''});
+  }
+  onStorySubmitHandler(formData){
+    this.props.addStory(Object.assign({}, formData, {blob:this.state.audioBlob}));
+    this.setState({isRecording: false, showForm:false});
   }
 
   render () {
-
+    const btnLabel = (this.state.isRecording) ? 'Save' : 'Record';
     return (
 
-      <section className="row">
-        <p>I am dashboard!</p>
-        <canvas id="analyser" width="1024" height="500"/>
+      <section>
+        <div className="row">
+          <h4>Record your story</h4>
+        </div>
+        <div className="row">
+          <div className="margin12 onlyBottomMargin">
+            <canvas id="analyser" width="800" height="150"/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="margin24 onlyBottomMargin">
+            <button className={  `btn margin24 ${this.state.isRecording ? 'btn-danger' : 'btn-primary'} onlyRightMargin`} onClick={this.onToggleRecording}>{btnLabel}</button>
+            {this.state.isRecording && <button className="btn btn-primary" onClick={this.onCancelRecording}>Cancel</button>}
+          </div>
 
 
-        <button onClick={this.onToggleRecord}>Record</button>
-        <button>Save</button>
+        </div>
+        {this.state.showForm && <StoryForm storySubmitHandler={this.onStorySubmitHandler}/>}
+
       </section>);
 
   }

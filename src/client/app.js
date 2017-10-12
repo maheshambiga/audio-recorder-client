@@ -10,6 +10,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 /*Style sheets*/
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'bootstrap/dist/css/bootstrap.css';
+
 import './assets/styles/app.css';
 import './assets/styles/fonts.css';
 import './assets/styles/layout.css';

@@ -8,6 +8,8 @@ import Dashboard from './containers/Dashboard/index';
 import EnsureLoggedInContainer from './containers/EnsureLoggedIn';
 import RecordAudio from './containers/AudioRecorder';
 import HomePage from './components/HomePage';
+import ViewStory from './containers/ViewStory';
+
 
 export const routes = (
   <Route path="/" component={App}>
@@ -16,8 +18,9 @@ export const routes = (
     <Route path="register" component={RegisterUser}/>
     <Route path="home" component={HomePage}/>
     <Route component={EnsureLoggedInContainer}>
-      <Route path='dashboard' component={Dashboard}/>
       <Route path='record-audio' component={RecordAudio}/>
+      <Route path='dashboard' component={Dashboard}/>
+      <Route path='story/:userId/:storyId' component={ViewStory}/>
     </Route>
     <Redirect path="*" to="/"/>
   </Route>

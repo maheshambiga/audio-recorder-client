@@ -15,7 +15,7 @@
 import { drawBuffer } from './AudioDisplay';
 import { Recorder } from './recorder';
 
-export class Main {
+export default class Main {
   constructor () {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
 

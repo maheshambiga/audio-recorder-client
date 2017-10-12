@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -42,7 +43,7 @@
 }
 
 .mesh-footer {
-  padding: 40px 0;
+  padding: 10px 0;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
@@ -235,4 +236,9 @@
   position: relative;
   overflow: hidden;
   width: 30px;
+}
+
+/*Canvas*/
+#analyser{
+  border:1px solid #5B7BD5;
 }

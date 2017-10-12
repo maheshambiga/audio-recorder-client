@@ -1,19 +1,74 @@
 import React, { Component } from 'react';
+import Loader from '../common/Loader';
+import { Link } from 'react-router';
+
 
 class Dashboard extends Component {
   constructor (props) {
     super(props);
 
   }
+  componentWillReceiveProps(nextProps){
+    if(this.props.filterBy !== nextProps.filterBy){
+      this.props.getStories(nextProps.filterBy);
+    }
+  }
+
+  componentDidMount () {
+    const {filterBy} = this.props;
+    this.props.getStories(filterBy);
+  }
+  onGenreChange(evt){
+    const genre = evt.target.value;
+
+    this.props.updateFilterType(genre);
+
+  }
 
   render () {
-
+    const {isFetching, error, result, filterBy} = this.props;
     return (
+      <section>
+        {error !== null &&
+        <h3 className="text-danger text-center">Something went wrong!</h3>}
+        {isFetching === true && error === null && <Loader/>}
+        {isFetching === false && error === null &&
+        Object.keys(result).length > 0 && <div className="clearfix">
 
-      <section className="row">
-        <p>I am dashboard!</p>
+          <div className="row">
+            <div className="col-lg-1">
+              Filter by:
+            </div>
+            <div className="col-lg-8">
+              <select value={filterBy} onChange={this.onGenreChange.bind(this)}>
+                <option value='all'>All</option>
+                <option value='comedy'>Comedy</option>
+                <option value='drama'>Drama</option>
+                <option value='horror fiction'>Horror fiction</option>
+                <option value='romance'>Romance</option>
+                <option value='tragedy'>Tragedy</option>
+                <option value='fantasy'>Fantasy</option>
+                <option value='mythology'>Mythology</option>
+              </select>
+            </div>
+          </div>
+          <div className="row margin36 onlyTopMargin">
+          {result.data.length > 0 ? result.data.map((result,id) => {
+            return (
+              <div className="col-xs-12 col-md-3 border border-success" key={`story-${id}`}>
+                <p>{result.createdBy}</p>
+                <p>{result.story.storyName}</p>
+                <p>{result.story.genre}</p>
+                <Link to={`story/${result._id}/${result.story._id}`}>View</Link>
+              </div>
+            );
+          }) : <h5 className="text-secondary pad24 text-center">No items
+            found!</h5>}
+          </div>
 
-      </section>);
+        </div>}</section>
+
+    );
 
   }
 }

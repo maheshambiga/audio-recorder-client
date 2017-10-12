@@ -7,6 +7,9 @@ import { loginUser } from "./../containers/Login/reducers";
 import { asyncCallStatus } from './../containers/AsyncFetch/reducers';
 import { authInfo } from "./../containers/App/reducers";
 import { userProfile } from "./../containers/UserProfile/reducers";
+import {stories} from './../containers/Dashboard/reducers';
+import {viewStory} from './../containers/ViewStory/reducers';
+import {addStory} from './../containers/AudioRecorder/reducers';
 /**
  * Merge route into the global application state
  * @param state
@@ -29,6 +32,9 @@ export default combineReducers({
   authInfo,
   loginUser,
   userProfile,
+  stories,
+  viewStory,
+  addStory,
   asyncCallStatus,
   form: formReducer,
   route: routeReducer
