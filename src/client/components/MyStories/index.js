@@ -3,20 +3,20 @@ import Loader from '../common/Loader';
 import { Link } from 'react-router';
 
 
-class Dashboard extends Component {
+class MyStories extends Component {
   constructor (props) {
     super(props);
 
   }
   componentWillReceiveProps(nextProps){
     if(this.props.filterBy !== nextProps.filterBy){
-      this.props.getStories(nextProps.filterBy);
+      this.props.getMyStories(nextProps.filterBy);
     }
   }
 
   componentDidMount () {
     const {filterBy} = this.props;
-    this.props.getStories(filterBy);
+    this.props.getMyStories(filterBy);
   }
   onGenreChange(evt){
     const genre = evt.target.value;
@@ -73,4 +73,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default MyStories;

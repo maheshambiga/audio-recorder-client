@@ -29,7 +29,7 @@ class AudioRecorder extends Component {
       });
 
     } else {
-      this.main.startRecording();
+      this.main !== null && this.main.startRecording();
       this.setState({isRecording: true});
     }
 

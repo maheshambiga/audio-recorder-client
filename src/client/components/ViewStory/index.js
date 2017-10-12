@@ -23,12 +23,11 @@ class ViewStory extends Component {
         {isFetching === false && error === null &&
         Object.keys(result).length > 0 && <div className="clearfix">
           <div className="row">
-            <p>{result.data[0]['stories'][0]['storyName']}</p>
-            <p>{String(result.data[0]['stories'][0]['path']).replace('uploads/', '')}</p>
-            <p>{result.data[0]['stories'][0]['genre']}</p>
+            <p>{result.data[0].story.storyName}</p>
+            <p>{result.data[0].story.genre}</p>
           </div>
           <audio controls autoPlay={true}>
-            <source src={`http://localhost:3000/api/v1/getAduio/${String(result.data[0]['stories'][0]['path']).replace('uploads/', '')}`} type="audio/wav"/>
+            <source src={`http://localhost:3000/api/v1/audio/${String(result.data[0].story.path).replace('uploads/', '')}`} type="audio/wav"/>
           </audio>
         </div>}
       </section>)

@@ -5,3 +5,5 @@
 node_modules/
 npm-debug.log
 archetype-debug.log
+archetype-exceptions.log
+.isomorphic-loader-config.json

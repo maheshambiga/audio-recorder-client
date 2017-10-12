@@ -54,13 +54,13 @@ const StoryForm = ({handleSubmit, valid, submitting, storySubmitHandler}) => {
             type="select"
             className="form-control">
             <option />
-            <option value='comedy'>Comedy</option>
-            <option value='drama'>Drama</option>
-            <option value='horror fiction'>Horror fiction</option>
-            <option value='romance'>Romance</option>
-            <option value='tragedy'>Tragedy</option>
-            <option value='fantasy'>Fantasy</option>
-            <option value='mythology'>Mythology</option>
+            <option value='Comedy'>Comedy</option>
+            <option value='Drama'>Drama</option>
+            <option value='Horror fiction'>Horror fiction</option>
+            <option value='Romance'>Romance</option>
+            <option value='Tragedy'>Tragedy</option>
+            <option value='Fantasy'>Fantasy</option>
+            <option value='Mythology'>Mythology</option>
           </Field>
 
         </div>
