@@ -133,7 +133,8 @@
 
 
   .body-container {
-    margin-top: 150px;
+    position: relative;
+    top: 80px;
 
   }
 
@@ -144,10 +145,9 @@
     float: right;
   }
 
-
-
   .body-container {
-    margin-top: 80px;
+    position: relative;
+    top: 80px;
 
   }
 }
@@ -241,4 +241,8 @@
 /*Canvas*/
 #analyser{
   border:1px solid #5B7BD5;
+}
+
+.cursorHand{
+  cursor: pointer;
 }

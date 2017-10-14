@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
-
+import BurgerMenu from './../../containers/BurgerMenu';
 import Header from './../../containers/Header';
 import Footer from '../Footer/index';
-import {getStorage} from '../../containers/App/actions';
-import {browserHistory} from 'react-router';
+import { getStorage } from '../../containers/App/actions';
+import { browserHistory } from 'react-router';
 
+class AppComp extends Component {
 
-class AppComp extends Component{
-
-  componentDidMount(){
+  componentDidMount () {
     const {authInfo} = this.props;
 
     console.log('--app componentDidMount --');
 
     const token = getStorage('token');
-    if(token!== null){
+    if (token !== null) {
       //if token exists in the local storage, set it in the app state
-      this.props.setAuthInfo({isLoggedIn:true, token:token});
-    }else{
+      this.props.setAuthInfo({isLoggedIn: true, token: token});
+    } else {
       //redirect to login page if token does not exist in the local storage
       //browserHistory.push('/login');
     }
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate (prevProps) {
 
     const isLoggingOut = prevProps.isLoggedIn && !this.props.isLoggedIn;
     const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn;
@@ -31,18 +30,22 @@ class AppComp extends Component{
     if (isLoggingIn) {
       browserHistory.push(this.props.redirectUrl);
 
-
     } else if (isLoggingOut) {
       browserHistory.push('/login');
     }
   }
-  render(){
-    return (<section>
-      <Header/>
-      <section className="container body-container overFlowWrap">
-        {this.props.children}
-      </section>
-      <Footer/>
+
+  render () {
+    const {isLoggedIn} = this.props;
+    return (<section id="outer-container">
+      {isLoggedIn && <BurgerMenu />}
+      <main id="page-wrap">
+        <Header/>
+        <section className="container body-container overFlowWrap">
+          {this.props.children}
+        </section>
+        <Footer/>
+      </main>
     </section>);
   }
 }

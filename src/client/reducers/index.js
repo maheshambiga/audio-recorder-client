@@ -6,6 +6,7 @@ import { registerUser } from "./../containers/Register/reducers";
 import { loginUser } from "./../containers/Login/reducers";
 import { asyncCallStatus } from './../containers/AsyncFetch/reducers';
 import { authInfo } from "./../containers/App/reducers";
+import { menuState } from "./../containers/BurgerMenu/reducers";
 import { userProfile } from "./../containers/UserProfile/reducers";
 import {stories} from './../containers/Dashboard/reducers';
 import {viewStory} from './../containers/ViewStory/reducers';
@@ -31,6 +32,7 @@ function routeReducer(state = routeInitialState, action) {
 export default combineReducers({
   registerUser,
   authInfo,
+  menuState,
   loginUser,
   userProfile,
   stories,
