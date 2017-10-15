@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import StoryForm from './StoryForm';
 import Main from './recorderjs/main';
 
+
 class AudioRecorder extends Component {
   constructor (props) {
     super(props);
+
+    //simple timer
+    this.timer = null;
 
     //instantiate audio
     this.main = new Main();
     this.main.initAudio.bind(this.main);
 
-    this.state = {isRecording: false, showForm: false, audioBlob: ''};
+    this.state = {isRecording: false, showForm: false, audioBlob: '', timeElapsed:''};
 
     this.onToggleRecording = this.onToggleRecording.bind(this);
     this.onCancelRecording = this.onCancelRecording.bind(this);
@@ -43,12 +47,14 @@ class AudioRecorder extends Component {
       this.main.stopRecording((blob) => {
 
         this.setState({audioBlob: blob});
+        this.stopTimer();
 
       });
 
     } else {
 
       if(this.main !== null){
+        this.startTimer();
         this.main.startRecording();
       }
       this.setState({isRecording: true});
@@ -71,8 +77,32 @@ class AudioRecorder extends Component {
     this.props.addStory(
       Object.assign({}, formData, {blob: this.state.audioBlob}));
     this.setState({isRecording: false, showForm: false});
+    this.stopTimer();
+  }
+  pad(n){
+    return ('00' + n).slice(-2);
   }
 
+  startTimer(){
+    const startTime = Date.now();
+    const second =1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+
+    this.timer = setInterval(()=>{
+      const currentTime = Date.now();
+      const difference = currentTime - startTime;
+
+      const hours = this.pad((difference / hour) | 0);
+      const minutes = this.pad(((difference % hour) / minute) | 0);
+      const seconds = this.pad(((difference % minute) / second) | 0);
+
+      this.setState({timeElapsed:`${hours + ':' + minutes + ':' + seconds}`});
+    }, 250);
+  }
+  stopTimer(){
+    clearInterval(this.timer);
+  }
   render () {
     const btnLabel = (this.state.isRecording) ? 'Save' : 'Record';
     return (
@@ -85,12 +115,16 @@ class AudioRecorder extends Component {
           </div>
         </div>}
 
+        <div className="audioRecorder">
+          <div
+            className={`icon-mic text-center audioMic cursorHand ${this.state.isRecording
+              ? 'm-active'
+              : ''}`} onClick={this.onToggleRecording}/>
+          {this.state.isRecording && <span className="color_747676 bold fontSize_9_5">{this.state.timeElapsed}</span>}
+        </div>
 
-        <div
-          className={`icon-mic audioMic cursorHand ${this.state.isRecording
-            ? 'm-active'
-            : ''}`} onClick={this.onToggleRecording}/>
-        <canvas id="analyser" style={{visibility:`${this.state.isRecording}?'hidden':'visible'`}}/>
+        <canvas id="analyser"/>
+
 
       </section>);
 

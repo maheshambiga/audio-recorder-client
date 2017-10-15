@@ -95,10 +95,7 @@
 
 }
 
-/*Canvas*/
-#analyser{
-  border:1px solid #5B7BD5;
-}
+
 
 .hamburgerMenu:hover, .hamburgerMenu:target{
   color: #FFF;
@@ -208,12 +205,13 @@ Dashboard
 .custom-dropdown::after {
   color: rgba(0,0,0,.4);
 }
-
-.audioMic{
+.audioRecorder{
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+}
+.audioMic{
   font-size: 120px;
 }
 .audioMic.m-active{
