@@ -23,7 +23,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-mic:before {
+  content: "\e91e";
+}
 .icon-files-empty:before {
   content: "\e925";
 }

@@ -1,12 +1,6 @@
-/***
-Styles for menu and header of app.
-
-Position and sizing of burger button
-***/
-
 
 .bm-menu-wrap {
-    width: 300px;
+    width: 250px;
     z-index: 4001 !important;
 }
 

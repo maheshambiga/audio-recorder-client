@@ -8,6 +8,8 @@ const validate = ({
 
   if (!genre) {
     errors.genre = 'Required.';
+  } else if (genre === 'select') {
+    errors.genre = 'Select a genre.';
   }
 
   if (!storyName) {
@@ -28,55 +30,66 @@ const renderField = field =>
       </span>}
   </div>;
 
-const StoryForm = ({handleSubmit, valid, submitting, storySubmitHandler}) => {
+const StoryForm = ({handleSubmit, valid, submitting, storySubmitHandler, onCancel}) => {
   const onToggleViewHandler = () => {
     toggleViewCallback('signup');
   };
   return (
-    <div className="row">
+    <div>
       <form className="clearfix">
+        <div className="row">
+          <div
+            className="col-lg-12 colo-xs-12 noSidePad margin6 onlyBottomMargin">
 
-        <div className="col-lg-2 noSidePad">
-          <label>Story Name</label>
-          <Field
-            name="storyName"
-            component={renderField}
-            type="text"
-            placeholder="Name"
-            className="form-control"
-          />
+            <Field
+              name="storyName"
+              component={renderField}
+              type="text"
+              placeholder="Story Name"
+              className="form-control"
+            />
+          </div>
+          <div className="col-lg-12 colo-xs-12 noSidePad">
+            <div className="custom-dropdown width-100">
+              <Field
+                name="genre"
+                component="select"
+                type="select"
+                className="form-control">
+                <option value='select'>Story Genre</option>
+                <option value='Comedy'>Comedy</option>
+                <option value='Drama'>Drama</option>
+                <option value='Horror fiction'>Horror fiction</option>
+                <option value='Romance'>Romance</option>
+                <option value='Tragedy'>Tragedy</option>
+                <option value='Fantasy'>Fantasy</option>
+                <option value='Mythology'>Mythology</option>
+              </Field>
+            </div>
+
+          </div>
         </div>
-        <div className="col-lg-2 noSidePad margin24 onlyLeftMargin">
-          <label>Story Genre</label>
-          <Field
-            name="genre"
-            component="select"
-            type="select"
-            className="form-control">
-            <option />
-            <option value='Comedy'>Comedy</option>
-            <option value='Drama'>Drama</option>
-            <option value='Horror fiction'>Horror fiction</option>
-            <option value='Romance'>Romance</option>
-            <option value='Tragedy'>Tragedy</option>
-            <option value='Fantasy'>Fantasy</option>
-            <option value='Mythology'>Mythology</option>
-          </Field>
 
-        </div>
 
-        <div className="col-lg-2 noSidePad margin24 onlyLeftMargin">
-          <button
-            type="button"
-            className="btn btn-success margin24 onlyTopMargin"
-            disabled={!valid || submitting}
-            onClick={
-              handleSubmit(data => {
-                storySubmitHandler(Object.assign({}, data));
-              })}
-          >
-            Add Story
-          </button>
+        <div className="row margin24 onlyTopMargin">
+          <div className="col-xs-12 col-lg-6 noSidePad">
+            <button
+              type="button"
+              className="button secondary m-fullWidth"
+              disabled={!valid || submitting}
+              onClick={
+                handleSubmit(data => {
+                  storySubmitHandler(Object.assign({}, data));
+                })}
+            >
+              Add Story
+            </button>
+          </div>
+          <div className="col-xs-12 col-lg-6 noSidePad">
+            <button className="button secondary m-fullWidth" onClick={onCancel}>
+              Cancel
+            </button>
+          </div>
         </div>
 
 

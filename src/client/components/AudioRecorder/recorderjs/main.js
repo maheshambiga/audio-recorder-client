@@ -68,12 +68,19 @@ export default class Main {
     this.callback = cb;
     this.audioRecorder.stop();
 
+    this.analyserContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+    this.cancelAnalyserUpdates();
+
     this.audioRecorder.getBuffers(this.gotBuffers.bind(this));
   }
 
   startRecording () {
     this.blob = null;//clear blob for new recording
+    if(this.audioRecorder){
+
+    }
     this.audioRecorder.clear();
+    this.updateAnalysers();
     this.audioRecorder.record();
 
   }
@@ -148,7 +155,6 @@ export default class Main {
   }
 
   gotStream (stream) {
-    console.log(this);
     this.inputPoint = this.audioContext.createGain();
 
     // Create an AudioNode from the stream.
@@ -168,7 +174,7 @@ export default class Main {
     zeroGain.gain.value = 0.0;
     this.inputPoint.connect(zeroGain);
     zeroGain.connect(this.audioContext.destination);
-    this.updateAnalysers();
+    //this.updateAnalysers();
   }
 
   initAudio () {

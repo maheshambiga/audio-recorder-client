@@ -47,7 +47,7 @@ class AppComp extends Component {
       <main id="page-wrap">
         <Header/>
         <div className="body-container">
-        <section className=" overFlowWrap">
+        <section id="body-wrapper" className=" overFlowWrap">
           {this.props.children}
         </section>
         <Footer/>

@@ -114,3 +114,7 @@
 	border: 1px solid #aeaeae;
 	cursor: default;
 }
+
+.button.m-fullWidth{
+	width: 100%;
+}
