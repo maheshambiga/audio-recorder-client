@@ -622,10 +622,6 @@
   vertical-align: middle;
 }
 
-.center > * {
-  white-space: normal; /*reset the white-space to behave normally for all elements inside the centerV container */
-  text-align: left;
-}
 
 .center_element {
   display: inline-block;

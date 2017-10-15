@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {includeToken} from './../../containers/App/actions';
+import {includeToken} from './../../containers/Login/actions';
 import Loader from '../common/Loader';
 
 class UserProfile extends Component {
@@ -35,7 +35,7 @@ class UserProfile extends Component {
         {userProfile.error &&
         <h3 className="text-danger text-center">Something went wrong!</h3>}
         {userProfile.isFetching && !userProfile.error && <Loader/>}
-        <div className="layout horizontal center-center">
+        <div className="layout horizontal start-justified center">
 
           <div className="profileImage margin6 on onlyRightMargin">
             <img className="width-100 pull-left " src={picture}/>

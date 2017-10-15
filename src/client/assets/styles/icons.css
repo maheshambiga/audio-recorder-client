@@ -33,9 +33,18 @@
 .icon-file-video:before {
   content: "\e92a";
 }
+.icon-user:before {
+  content: "\e971";
+}
+.icon-logout:before {
+  content: "\e9b6";
+}
 .icon-menu:before {
   content: "\e9bd";
 }
 .icon-cloud-upload:before {
   content: "\e9c3";
+}
+.icon-arrow-left2:before {
+  content: "\ea40";
 }

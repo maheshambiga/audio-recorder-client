@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import UserProfile from './../../containers/UserProfile';
 import LogoImg from './../../assets/images/logo.png';
 
 class Header extends Component {
@@ -25,21 +24,21 @@ class Header extends Component {
         <div className="container">
           <div className="navbar-header">
 
-
+            <div className="layout horizontal start-justified center">
             {authInfo.isLoggedIn && <div
-              className="icon-menu color_FFF pull-left pad12 margin18 onlySideMargin fontSize_9 cursorHand"
+              className="icon-menu color_747676 pull-left pad12 margin6 onlySideMargin fontSize_9 cursorHand hamburgerMenu"
               onClick={this.openMenuOverlay}/>}
-            <Link className="navbar-brand" to="/home">
+
+            <Link className="navbar-brand" style={{'marginLeft':0, 'height':'auto'}} to="/home">
+              <div className="layout horizontal start-justified center">
               <img className="pull-left" src={LogoImg} width="30" height="30"
                    alt=""/>
               <span
-                className="pull-right margin10 onlyLeftMargin">Storyscape</span>
+                className="pull-right margin10 onlyLeftMargin">Storyscape</span></div>
             </Link>
+            </div>
 
           </div>
-          {authInfo.isLoggedIn && <div className="navbar-right">
-            <UserProfile/>
-          </div>}
 
         </div>
       </nav>

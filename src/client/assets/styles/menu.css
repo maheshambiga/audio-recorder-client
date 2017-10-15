@@ -41,8 +41,17 @@ Position and sizing of burger button
 .bm-menu {
     background: #373a47;
     background: linear-gradient(to bottom, #333333 4em, #222222 calc(4em - 100%));
-    padding: 3em 0 0;
+    padding: 0 0 0;
     font-size: 1.15em;
+}
+
+.profile-header{
+    display: block;
+    outline: none;
+    padding: 30px;
+    padding-left: 2em;
+    width: 100%;
+    background-color: #747676;
 }
 
 /* Morph shape necessary with bubble or elastic */

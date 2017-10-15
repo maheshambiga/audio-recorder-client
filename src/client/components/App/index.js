@@ -27,8 +27,13 @@ class AppComp extends Component {
     const isLoggingOut = prevProps.isLoggedIn && !this.props.isLoggedIn;
     const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn;
 
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.props.setActivePage(this.props.location.pathname);
+    }
+
     if (isLoggingIn) {
-      browserHistory.push(this.props.redirectUrl);
+      browserHistory.replace(this.props.redirectUrl);
+      console.log(this.props.redirectUrl);
 
     } else if (isLoggingOut) {
       browserHistory.push('/login');
@@ -41,10 +46,12 @@ class AppComp extends Component {
       {isLoggedIn && <BurgerMenu />}
       <main id="page-wrap">
         <Header/>
-        <section className="container body-container overFlowWrap">
+        <div className="body-container">
+        <section className=" overFlowWrap">
           {this.props.children}
         </section>
         <Footer/>
+        </div>
       </main>
     </section>);
   }

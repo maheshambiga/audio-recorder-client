@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {setAuthInfo,setStorage, clearStorage} from './../App/actions';
+import {browserHistory} from 'react-router';
 import {
   INVALIDATE_LOGIN_USER,
   LOGIN_USER_FAILURE,
@@ -32,6 +33,16 @@ export const invalidateUserLogin = () => {
   };
 };
 
+export const includeToken = (token) => {
+  if (token) {
+    axios.defaults.headers.common['x-auth-token'] = token;
+  } else {
+    axios.defaults.headers.common['x-auth-token'] = null;
+    /*if setting null does not remove `Authorization` header then try
+            delete axios.defaults.headers.common['Authorization'];
+          */
+  }
+};
 
 export const authenticateUserAPI = (data) => {
   return axios({
@@ -62,4 +73,13 @@ export const authenticateUser = (userData) => {
   return (dispatch) => {
     authenticate(dispatch, userData);
   };
+};
+
+
+export const logoutUser = () => {
+  return (dispatch)=>{
+    dispatch(setAuthInfo({isLoggedIn:false, token:null}));
+    clearStorage('token');
+    browserHistory.push('/login');
+  }
 };

@@ -8,3 +8,53 @@
 .color_red {color:#cd040b;} /* Red - Verizon Red*/
 .color_blue_two {color: #06C}
 .color-green {color:#489A48;}
+
+
+.width-100 {
+    width: 100%;
+}
+
+/* classes to change display type. */
+.displayInline {
+    display: inline;
+}
+
+.displayBlock {
+    display: block;
+}
+
+.displayInlineBlock {
+    display: inline-block;
+}
+
+.displayNone {
+    display: none
+}
+
+.marginAuto {
+    margin: auto;
+}
+
+.textUnderline {
+    text-decoration-line: underline;
+}
+
+.overFlowWrap {
+    overflow-wrap: break-word;
+}
+
+.clearFloat{
+    clear: both;
+}
+
+.cursorHand{
+    cursor: pointer;
+}
+
+.pure-img {
+    max-width: 100%;
+}
+
+.background_themeColor {
+    background-color: #01d5d8;
+}

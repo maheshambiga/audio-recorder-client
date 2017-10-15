@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'MYRIADPROREGULAR';
+  src: url(./../../assets/fonts/MyriadWebPro.eot);
+  src: local('MYRIADPROREGULAR'), url('./../../assets/fonts/MyriadWebPro.woff') format('woff'), url('./../../assets/fonts/MyriadWebPro.ttf') format('truetype');
+}
+
+
 /*font Sizes*/
 .fontSize_11 {
   font-size: 75px;

@@ -26,13 +26,3 @@ export const clearStorage = (name) => {
   localStorage.removeItem(name);
 };
 
-export const includeToken = (token) => {
-  if (token) {
-    axios.defaults.headers.common['x-auth-token'] = token;
-  } else {
-    axios.defaults.headers.common['x-auth-token'] = null;
-    /*if setting null does not remove `Authorization` header then try
-            delete axios.defaults.headers.common['Authorization'];
-          */
-  }
-};

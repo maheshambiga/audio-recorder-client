@@ -37,7 +37,7 @@ export const registerUserAPI = ({email, firstName, lastName, password}) => {
     name: `${firstName} ${lastName}`,
     email,
     password,
-    imageUrl: 'http://www.onemusic.ph/img/user-avatar-n.jpg',//default profile img
+    imageUrl: 'https://www.starbucks.com/static/images/account/profile_image_generic.svg',//default profile img
   };
   return axios({
     method: 'post',
