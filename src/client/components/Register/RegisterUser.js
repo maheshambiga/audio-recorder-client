@@ -92,13 +92,11 @@ const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser, result}
         <p className="color_959595">{result.message}</p>}
         <div className="row">
 
-          <div className="col-xs-6"><Link to="/login"
-                                          className="fontWeightBold margin12 noSideMargin block textUnderline color_FFF">Back
-            to Sign in</Link></div>
+
           <div className="col-xs-6">
             <button
               type="button"
-              className="button large primary pull-right"
+              className="button large primary"
               disabled={!valid || submitting}
               onClick={
                 handleSubmit(data => {
@@ -109,6 +107,10 @@ const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser, result}
               Sign Up
             </button>
           </div>
+          <div className="col-xs-6">
+
+            <Link to="/login" className="fontWeightBold margin12 noSideMargin block textUnderline color_FFF">Back
+            to Sign in</Link></div>
         </div>
 
 

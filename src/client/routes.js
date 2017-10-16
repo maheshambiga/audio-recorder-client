@@ -8,6 +8,7 @@ import Dashboard from './containers/Dashboard/index';
 import EnsureLoggedInContainer from './containers/EnsureLoggedIn';
 import RecordAudio from './containers/AudioRecorder';
 import HomePage from './components/HomePage';
+import LeanMore from './components/LearnMore';
 import ViewStory from './containers/ViewStory';
 import MyStories from './containers/MyStories';
 
@@ -17,6 +18,7 @@ export const routes = (
     <Route path="login" component={LoginPage}/>
     <Route path="register" component={RegisterUser}/>
     <Route path="home" component={HomePage}/>
+    <Route path="learn-more" component={LeanMore}/>
     <Route component={EnsureLoggedInContainer}>
       <Route path='record-audio' component={RecordAudio}/>
       <Route path='dashboard' component={Dashboard}/>

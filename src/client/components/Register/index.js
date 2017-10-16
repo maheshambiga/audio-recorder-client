@@ -26,10 +26,10 @@ class RegisterUser extends Component {
                 wrong!</h3>}
               {isFetching && !error && <Loader/>}
 
-
               <div className="col-lg-7 col-lg-push-1">
 
-                <p className="fontSize_9_5 color_FFF">Get your headphones
+                <p className="fontSize_9_5 color_FFF fontBradleyHandITC">Get
+                  your headphones
                   ready</p>
 
               </div>

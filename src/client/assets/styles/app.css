@@ -116,15 +116,24 @@
 .homePageTree{
   display: block;
   text-indent: -9999px;
-  width: 100px;
-  height: 82px;
+  width: 360px;
+  height: 360px;
   background: url(./../images/tree.svg) no-repeat top right;
   background-size: contain;
 }
-
-
-.homePageTree{
-  display: block;
+/*Learn More*/
+.learnMoreLeft{
+  width: 200px;
+  height:360px;
+}
+.learnMoreLeftImg{
+  background: url(./../images/learnmore-pic.png) no-repeat bottom right;
+  background-size: contain;
+  width: 100%;
+  height:100%;
+}
+.fontBradleyHandITC{
+  font-family: BradleyHandITC, Arial, Helvetica, sans-serif;
 }
 
 /*
@@ -145,7 +154,9 @@ Dashboard
   background-color: #3f3f3f;
   border-radius: 20px;
 }
-
+.learnMoreRightSection{
+  width: 50%;
+}
 /*Dropdown*/
 
 
@@ -236,23 +247,6 @@ Dashboard
 }
 
 
-.modalCloseIcon {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  right: 0;
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 2.5rem;
-  font-size: 30px;
-  color:#333333;
-  outline: none;
-}
-.modalCloseIcon::after {
-  font-family: 'vzwIcons';
-  content: "\00d7";
-
-}
 .modalContent{
   max-height: 100vh;
 }
@@ -305,7 +299,13 @@ Dashboard
 @media only screen and (min-width : 768px) {
   .homePageLeftSection{
     background: none;
+    width: 50%;
+    float: left;
   }
+  .homePageTree{
+    float: right;
+  }
+
 }
 
 /* Medium Devices, Desktops */
@@ -341,7 +341,14 @@ Dashboard
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
+  .homePageLeftSection{
+    background: none;
+    width: 50%;
+    float: left;
+  }
+  .homePageTree{
+    float: right;
+  }
 }
 
 /* Extra Small Devices, Phones */
@@ -351,7 +358,7 @@ Dashboard
   }
 
   .homePageLeftSection{
-    background: url(./../images/tree.svg) no-repeat top right;
+    background: url(./../images/tree.svg) no-repeat bottom right;
     background-size: contain;
 
     width: 100%;
@@ -366,7 +373,7 @@ Dashboard
   }
 
   .homePageLeftSection{
-    background: url(./../images/tree.svg) no-repeat top right;
+    background: url(./../images/tree.svg) no-repeat bottom right;
     background-size: contain;
 
     width: 100%;
