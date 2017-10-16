@@ -129,7 +129,7 @@ class Dashboard extends Component {
                           <div className="dashBoardStoryName pad12 onlyLeftPad">
                             <p className="fontSize_8 overFlowWrap">{result.story.storyName}</p>
                             <p>By: {result.createdBy}</p>
-                            <Link
+                            <Link className="color_666 textUnderline"
                               to={`story/${result._id}/${result.story._id}`}>Listen</Link>
                           </div>
 
