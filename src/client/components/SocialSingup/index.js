@@ -38,7 +38,7 @@ const SocialSignup = ({registerUser}) => {
       token: accessToken
     });
   };
-  return (<div>
+  return (<div className=" margin24 noSideMargin">
     <GoogleLogin onSuccess={onGoogleSignInSuccssHandler}
                  onFailure={onGoogleSignInFailureHandler}
                  clientId="898381849176-i6o5tfnm1e69fsgb0frr12l1klc08k01.apps.googleusercontent.com"
@@ -46,6 +46,7 @@ const SocialSignup = ({registerUser}) => {
 
     <FacebookLogin onClick={onFacebookClickHandler}
                    callback={onFacebookSignInSuccssHandler}
+                   disableMobileRedirect={false}
                    appId="507097652976160"
                    fields="name,email,picture"
                    cssClass="loginBtn m-facebook width-100" />

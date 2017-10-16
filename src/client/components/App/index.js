@@ -10,8 +10,6 @@ class AppComp extends Component {
   componentDidMount () {
     const {authInfo} = this.props;
 
-    console.log('--app componentDidMount --');
-
     const token = getStorage('token');
     if (token !== null) {
       //if token exists in the local storage, set it in the app state
@@ -21,22 +19,29 @@ class AppComp extends Component {
       //browserHistory.push('/login');
     }
   }
+  componentWillReceiveProps(nextProps){
+    //set redirect URL if user is logged in and location is not login so that user could land on the same page as while logging out.
+    if(this.props.isLoggedIn && nextProps.location.pathname !== '/login' && this.props.location.pathname !== nextProps.location.pathname){
+      this.props.setRedirectUrl(nextProps.location.pathname);
+    }
+  }
 
   componentDidUpdate (prevProps) {
 
     const isLoggingOut = prevProps.isLoggedIn && !this.props.isLoggedIn;
     const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn;
 
+    //set active page to highlight the selected menu option
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.props.setActivePage(this.props.location.pathname);
     }
 
+    //on login redirect to previous URL
     if (isLoggingIn) {
       browserHistory.replace(this.props.redirectUrl);
-      console.log(this.props.redirectUrl);
 
     } else if (isLoggingOut) {
-      browserHistory.push('/login');
+      browserHistory.replace('/login');
     }
   }
 

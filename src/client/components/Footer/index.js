@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
 
-const Footer = () => (<footer className="mesh-footer">
+
+const Footer = () => (<footer className="appFooter color_FFF">
   <p>&copy; 2017 - All rights reserved</p>
   <p>
-    <Link to="/contact">contact</Link>
+    <a className="textUnderline" href="mailto:dhanya.sada@gmail.com">contact</a>
   </p>
 </footer>);
 

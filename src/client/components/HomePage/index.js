@@ -33,10 +33,10 @@ const HomePage = (props) => {
             <div className="homePageTree"/>
           </div>
           <div className="row margin18 onlyTopMargin">
-            <button className="button primary primary margin12 onlyRightMargin"
+            <button className="button primary large margin12 onlyRightMargin"
                     onClick={onClickGetStartedHandler}>Get started
             </button>
-            <button className="button primary primary"
+            <button className="button primary large"
                     onClick={onClickLearnMoreHandler}>Learn more
             </button>
           </div>
