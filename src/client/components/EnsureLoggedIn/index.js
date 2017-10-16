@@ -12,7 +12,7 @@ class EnsureLoggedIn extends Component {
     if (!isLoggedIn) {
       // set the current url/path for future redirection (we use a Redux action)
       // then redirect (we use a React Router method)
-      this.props.setRedirectUrl(currentURL);
+      //this.props.setRedirectUrl(currentURL);
       browserHistory.replace("/login");
     }
   }

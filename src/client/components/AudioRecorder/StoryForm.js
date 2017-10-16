@@ -20,9 +20,9 @@ const validate = ({
 };
 
 const renderField = field =>
-  <div className="input-row">
+  <div className="input-row inputBoxShadow">
     <input {...field.input} placeholder={field.placeholder}
-           className="form-control" type="text"/>
+           className="block width-100" type="text"/>
     {field.meta.touched &&
     field.meta.error &&
     <span className="text-danger">

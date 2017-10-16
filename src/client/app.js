@@ -18,6 +18,9 @@ import './assets/styles/singles.css';
 import './assets/styles/flexHelper.css';
 import './assets/styles/icons.css';
 import './assets/styles/buttons.css';
+
+
+
 import configureStore from './configureStore';
 import { routes } from './routes';
 

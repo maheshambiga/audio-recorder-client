@@ -72,6 +72,11 @@
     background: #222222;
 }
 
+.menu-item:hover {
+    color: #747676;
+    text-decoration-line: none;
+}
+
 .menu-item.selected {
     border-left: 6px solid #f8d362;
 }

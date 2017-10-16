@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 const validate = ({
                     email, password,
@@ -21,12 +21,12 @@ const validate = ({
 };
 
 const renderField = field =>
-  <div className="input-row">
+  <div className="input-row inputBoxShadow">
     <input {...field.input} placeholder={field.placeholder}
-           className="form-control" type="text"/>
+           className="block width-100" type="text"/>
     {field.meta.touched &&
     field.meta.error &&
-    <span className="text-danger">
+    <span className="color_959595">
         {field.meta.error}
       </span>}
   </div>;
@@ -60,25 +60,37 @@ const CustomLogin = ({handleSubmit, valid, submitting, result, authenticateUser}
           />
         </div>
 
-        {typeof result.success !== typeof undefined && result.success === false &&
-        <p className="text-center">{result.message}</p>}
+        {typeof result.success !== typeof undefined &&
+        result.success === false &&
+        <div className="col-lg-12 noSidePad">
+          <p className="color_959595">{result.message}</p>
+        </div>}
+        <div className="row">
+          <div className="col-xs-6">
+            <button
+              type="button"
+              className="button primary large"
+              disabled={!valid || submitting}
+              onClick={
+                handleSubmit(data => {
+                  authenticateUser(Object.assign({}, data, {type: 0}));
+                })}
+            >
+              Sign In
+            </button>
 
-        <button
-          type="button"
-          className="btn btn-lg btn-success width-100"
-          disabled={!valid || submitting}
-          onClick={
-            handleSubmit(data => {
-              authenticateUser(Object.assign({}, data, {type:0}));
-            })}
-        >
-          Sign In
-        </button>
+          </div>
+          <div className="col-xs-6">
+            <Link to="/register"
+                  className="fontWeightBold margin12 noSideMargin block textUnderline color_FFF">Register
+              now</Link>
+          </div>
+
+        </div>
 
 
       </form>
-      <Link to="/register"
-         className="fontWeightBold margin12 noSideMargin block">Register now</Link>
+
     </div>
   );
 };

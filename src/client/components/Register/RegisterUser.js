@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 const validate = ({
                     firstName,
@@ -30,17 +30,17 @@ const validate = ({
 };
 
 const renderField = field =>
-  <div className="input-row">
+  <div className="input-row inputBoxShadow">
     <input {...field.input} placeholder={field.placeholder}
-           className="form-control" type="text"/>
+           className="block width-100" type="text"/>
     {field.meta.touched &&
     field.meta.error &&
-    <span className="text-danger">
+    <span className="color_959595">
         {field.meta.error}
       </span>}
   </div>;
 
-const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser}) => {
+const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser, result}) => {
   const onToggleViewHandler = () => {
     toggleViewCallback('signin');
   };
@@ -48,64 +48,73 @@ const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser}) => {
     <div>
       <form>
 
-          <div className="col-lg-12 noSidePad margin24 onlyBottomMargin">
+        <div className="col-lg-12 noSidePad margin24 onlyBottomMargin">
 
-            <Field
-              name="firstName"
-              component={renderField}
-              type="text"
-              placeholder="First Name"
-              className="form-control"
-            />
+          <Field
+            name="firstName"
+            component={renderField}
+            type="text"
+            placeholder="First Name"
+            className="form-control"
+          />
+        </div>
+        <div className="col-lg-12 noSidePad margin24 onlyBottomMargin">
+          <Field
+            name="lastName"
+            component={renderField}
+            type="text"
+            placeholder="Last Name"
+            className="form-control"
+          />
+        </div>
+        <div className="col-lg-12 noSidePad margin24 onlyBottomMargin">
+
+          <Field
+            name="email"
+            component={renderField}
+            type="text"
+            placeholder="Your Email"
+            className="form-control"
+          />
+        </div>
+        <div className="col-lg-12 noSidePad margin24 onlyBottomMargin ">
+
+          <Field
+            name="password"
+            component={renderField}
+            type="text"
+            placeholder="Password"
+            className="form-control"
+          />
+        </div>
+
+        {typeof result.success !== typeof undefined &&
+        <p className="color_959595">{result.message}</p>}
+        <div className="row">
+
+          <div className="col-xs-6"><Link to="/login"
+                                          className="fontWeightBold margin12 noSideMargin block textUnderline color_FFF">Back
+            to Sign in</Link></div>
+          <div className="col-xs-6">
+            <button
+              type="button"
+              className="button large primary pull-right"
+              disabled={!valid || submitting}
+              onClick={
+                handleSubmit(data => {
+
+                  registerNewUser(data);
+                })}
+            >
+              Sign Up
+            </button>
           </div>
-          <div className="col-lg-12 noSidePad margin24 onlyBottomMargin">
-            <Field
-              name="lastName"
-              component={renderField}
-              type="text"
-              placeholder="Last Name"
-              className="form-control"
-            />
-          </div>
-          <div className="col-lg-12 noSidePad margin24 onlyBottomMargin">
-
-            <Field
-              name="email"
-              component={renderField}
-              type="text"
-              placeholder="Your Email"
-              className="form-control"
-            />
-          </div>
-          <div className="col-lg-12 noSidePad margin24 onlyBottomMargin ">
-
-            <Field
-              name="password"
-              component={renderField}
-              type="text"
-              placeholder="New Password"
-              className="form-control"
-            />
-          </div>
-
-          <button
-            type="button"
-            className="btn btn-lg btn-success width-100"
-            disabled={!valid || submitting}
-            onClick={
-              handleSubmit(data => {
-
-                registerNewUser(data);
-              })}
-          >
-            Sign Up
-          </button>
+        </div>
 
 
       </form>
 
-      <Link to="/login"
-            className="fontWeightBold margin12 noSideMargin block">Back to Sign in</Link>
+
     </div>
   );
 };

@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import Loader from '../common/Loader';
 import { Link } from 'react-router';
 
+import adventure_1 from './../../assets/images/icons/adventure_1.png';
+import adventure_2 from './../../assets/images/icons/adventure_2.png';
+import adventure_3 from './../../assets/images/icons/adventure_3.png';
+import bedtime_1 from './../../assets/images/icons/bedtime_1.png';
+import bedtime_2 from './../../assets/images/icons/bedtime_2.png';
+import bedtime_3 from './../../assets/images/icons/bedtime_3.png';
+import comedy_1 from './../../assets/images/icons/comedy_1.png';
+import drama_1 from './../../assets/images/icons/drama_1.png';
+import drama_2 from './../../assets/images/icons/drama_2.png';
+import fantasy_1 from './../../assets/images/icons/fantasy_1.png';
+import fantasy_2 from './../../assets/images/icons/fantasy_2.png';
+import fantasy_3 from './../../assets/images/icons/fantasy_3.png';
+import horror_1 from './../../assets/images/icons/horror_1.png';
+import horror_2 from './../../assets/images/icons/horror_2.png';
+import horror_3 from './../../assets/images/icons/horror_3.png';
+import inspirational_1 from './../../assets/images/icons/inspirational_1.png';
+import inspirational_2 from './../../assets/images/icons/inspirational_2.png';
+import inspirational_3 from './../../assets/images/icons/inspirational_3.png';
+import romance_1 from './../../assets/images/icons/romance_1.png';
+import romance_2 from './../../assets/images/icons/romance_2.png';
+import romance_3 from './../../assets/images/icons/romance_3.png';
+import selfhelp_1 from './../../assets/images/icons/selfhelp_1.png';
+import selfhelp_2 from './../../assets/images/icons/selfhelp_2.png';
+import selfhelp_3 from './../../assets/images/icons/selfhelp_3.png';
+
 class MyStories extends Component {
   constructor (props) {
     super(props);
@@ -25,6 +50,29 @@ class MyStories extends Component {
     this.props.updateFilterType(genre);
 
   }
+  getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  getImages(){
+    return {
+      "Adventure":[adventure_1, adventure_2, adventure_3],
+      "Bedtime":[bedtime_1, bedtime_2, bedtime_3],
+      "Comedy":[comedy_1],
+      "Drama":[drama_1, drama_2],
+      "Horor":[horror_1, horror_2, horror_3],
+      "Romance":[romance_1, romance_2, romance_3],
+      "Inspirational":[inspirational_1, inspirational_2, inspirational_3],
+      "Fantasy":[fantasy_1, fantasy_2, fantasy_3],
+      "Self-help":[selfhelp_1, selfhelp_2, selfhelp_3]
+    }
+  }
+  getImage(categoryName){
+    const imagesBank = this.getImages();
+    const catImgsArr = imagesBank[categoryName];
+    const random = this.getRandomArbitrary(0, catImgsArr.length-1);
+    return catImgsArr[random];
+  }
+
 
   render () {
     const {isFetching, error, result, filterBy} = this.props;
@@ -43,17 +91,19 @@ class MyStories extends Component {
                 <div className="row">
                   <div className="col-lg-12">
                     <span> Filter by:</span>
-                    <span className="custom-dropdown ">
+                    <span className="custom-dropdown margin12 onlyLeftMargin">
                     <select value={filterBy}
                             onChange={this.onGenreChange.bind(this)}>
                       <option value='all'>All</option>
+                      <option value='Adventure'>Adventure</option>
+                      <option value='Bedtime'>Bedtime</option>
                       <option value='Comedy'>Comedy</option>
                       <option value='Drama'>Drama</option>
-                      <option value='Horror fiction'>Horror fiction</option>
+                      <option value='Horor'>Horor</option>
                       <option value='Romance'>Romance</option>
-                      <option value='Tragedy'>Tragedy</option>
+                      <option value='Inspirational'>Inspirational</option>
                       <option value='Fantasy'>Fantasy</option>
-                      <option value='Mythology'>Mythology</option>
+                      <option value='Self-help'>Self-help</option>
                     </select>
                     </span>
                   </div>
@@ -61,13 +111,17 @@ class MyStories extends Component {
                 </div>
                 <div className="row margin36 onlyTopMargin">
                   {result.data.length > 0 ? result.data.map((result, id) => {
+                    const storyCoverPhoto = {
+                      backgroundImage: 'url('+this.getImage(result.story.genre)+')',
+                      backgroundSize: 'contain'
+                    };
                     return (
                       <div
                         className="col-xs-12 col-md-6 col-sm-6 col-lg-6 border border-success margin12 onlyBottomMargin"
                         key={`story-${id}`}>
                         <div className="layout horizontal color_FFF start-justified center">
                           <div className="dashBoardStoryBox ">
-                            <div className="dashBoardStoryBoxImg"/>
+                            <div className="dashBoardStoryBoxImg" style={storyCoverPhoto}/>
                           </div>
                           <div className="dashBoardStoryName pad12 onlyLeftPad">
                             <p className="fontSize_8 overFlowWrap">{result.story.storyName}</p>

@@ -17,31 +17,31 @@ class RegisterUser extends Component {
   render () {
     const {isFetching, error, result} = this.props;
     return (
-      <div className="container">
-        <div className="margin24 noSideMargin">
-          <section className="row">
-            {error &&
-            <h3 className="text-danger text-center">Something went wrong!</h3>}
-            {isFetching && !error && <Loader/>}
+      <div className="loginBackground">
+        <div className="container">
+          <div className="margin24 noSideMargin">
+            <section className="row">
+              {error &&
+              <h3 className="text-danger text-center">Something went
+                wrong!</h3>}
+              {isFetching && !error && <Loader/>}
 
-            <div className="col-lg-6 col-lg-push-2">
 
-              <div className="col-lg-6 col-md-6">
-                <RegisterUserForm {...this.props}/>
-                {typeof result.success !== typeof undefined &&
-                <p>{result.message}</p>}
+              <div className="col-lg-7 col-lg-push-1">
+
+                <p className="fontSize_9_5 color_FFF">Get your headphones
+                  ready</p>
 
               </div>
-              <div className="col-lg-6 col-md-6 col-lg-push-1">
-
+              <div className="col-lg-3">
+                <RegisterUserForm {...this.props}/>
                 <SocialSignup/>
 
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
       </div>
-
     );
 
   }
