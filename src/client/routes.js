@@ -11,6 +11,10 @@ import HomePage from './components/HomePage';
 import LeanMore from './components/LearnMore';
 import ViewStory from './containers/ViewStory';
 import MyStories from './containers/MyStories';
+import Stories from './components/ReadStories';
+import Story1 from './components/ReadStories/Story1';
+import Story2 from './components/ReadStories/Story2';
+import Story3 from './components/ReadStories/Story3';
 
 export const routes = (
   <Route path="/" component={App}>
@@ -19,6 +23,10 @@ export const routes = (
     <Route path="register" component={RegisterUser}/>
     <Route path="home" component={HomePage}/>
     <Route path="learn-more" component={LeanMore}/>
+    <Route path="stories" component={Stories}/>
+    <Route path="story1" component={Story1}/>
+    <Route path="story2" component={Story2}/>
+    <Route path="story3" component={Story3}/>
     <Route component={EnsureLoggedInContainer}>
       <Route path='record-audio' component={RecordAudio}/>
       <Route path='dashboard' component={Dashboard}/>
