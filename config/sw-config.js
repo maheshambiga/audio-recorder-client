@@ -1,6 +1,6 @@
 module.exports = {
   cache: {
-    cacheId: 'demoApp',
+    cacheId: 'Storyscape',
     runtimeCaching: [{
       handler: 'fastest',
       urlPattern: '\/$'
@@ -9,7 +9,7 @@ module.exports = {
   },
   manifest: {
     background: '#FFFFFF',
-    title: 'demoApp',
+    title: 'Storyscape',
     short_name: 'PWA',
     theme_color: '#FFFFFF'
   }
