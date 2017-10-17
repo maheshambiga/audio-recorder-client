@@ -41,7 +41,7 @@ const SocialSignup = ({registerUser}) => {
   return (<div className=" margin24 noSideMargin">
     <GoogleLogin onSuccess={onGoogleSignInSuccssHandler}
                  onFailure={onGoogleSignInFailureHandler}
-                 clientId="898381849176-i6o5tfnm1e69fsgb0frr12l1klc08k01.apps.googleusercontent.com"
+                 clientId="6508075040-nv97qej2oqcr2fagj5b55ci5vluesj9t.apps.googleusercontent.com"
                  className="loginBtn m-google width-100 "/>
 
     <FacebookLogin onClick={onFacebookClickHandler}

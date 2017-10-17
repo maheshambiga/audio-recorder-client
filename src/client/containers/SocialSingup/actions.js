@@ -1,13 +1,12 @@
 import axios from 'axios';
-
-import {setAuthInfo,setStorage} from './../App/actions';
-import {authenticate} from './../Login/actions';
-
+import { authenticate } from './../Login/actions';
+import { LOGIN_API } from './../../appConstants';
+import { SIGN_UP_API } from './../../appConstants';
 export const authenticateUserAPI = (data) => {
 
   return axios({
     method: 'post',
-    url: `http://localhost:3000/api/v1/login`,
+    url: LOGIN_API,
     data,
   });
 };
@@ -17,7 +16,7 @@ const registerUserAPI = (data) => {
 
   return axios({
     method: 'post',
-    url: `http://localhost:3000/api/v1/signup`,
+    url: SIGN_UP_API,
     data,
   });
 };

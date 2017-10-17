@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {reset} from 'redux-form';
 import {browserHistory} from 'react-router';
+import { SIGN_UP_API } from './../../appConstants';
 import {
   INVALIDATE_REGISTER_USER,
   REGISTER_USER_FAILURE,
@@ -43,7 +44,7 @@ export const registerUserAPI = ({email, firstName, lastName, password}) => {
   };
   return axios({
     method: 'post',
-    url: `http://localhost:3000/api/v1/signup`,
+    url: SIGN_UP_API,
     data,
   });
 };

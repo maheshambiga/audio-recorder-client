@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {setAuthInfo,setStorage, clearStorage} from './../App/actions';
 import {browserHistory} from 'react-router';
+import {LOGIN_API} from './../../appConstants';
 import {
   INVALIDATE_LOGIN_USER,
   LOGIN_USER_FAILURE,
@@ -47,7 +48,7 @@ export const includeToken = (token) => {
 export const authenticateUserAPI = (data) => {
   return axios({
     method: 'post',
-    url: `http://localhost:3000/api/v1/login`,
+    url: LOGIN_API,
     data,
   });
 };
