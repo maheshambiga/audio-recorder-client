@@ -62,11 +62,11 @@
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
     "worker-loader": "^1.0.0",
-    "xclap-cli": "^0.1.3"
+    "xclap-cli": "^0.1.3",
+    "xclap": "^0.2.15"
   },
   "devDependencies": {
-    "electrode-archetype-react-app-dev": "^3.0.0",
-    "xclap": "^0.2.15"
+    "electrode-archetype-react-app-dev": "^3.0.0"
   },
   "private": true
 }
