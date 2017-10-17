@@ -9,6 +9,7 @@ import bedtime_1 from './../../assets/images/icons/bedtime_1.png';
 import bedtime_2 from './../../assets/images/icons/bedtime_2.png';
 import bedtime_3 from './../../assets/images/icons/bedtime_3.png';
 import comedy_1 from './../../assets/images/icons/comedy_1.png';
+import comedy_2 from './../../assets/images/icons/comedy_2.png';
 import drama_1 from './../../assets/images/icons/drama_1.png';
 import drama_2 from './../../assets/images/icons/drama_2.png';
 import fantasy_1 from './../../assets/images/icons/fantasy_1.png';
@@ -60,9 +61,9 @@ class Dashboard extends Component {
     return {
       "Adventure":[adventure_1, adventure_2, adventure_3],
       "Bedtime":[bedtime_1, bedtime_2, bedtime_3],
-      "Comedy":[comedy_1],
+      "Comedy":[comedy_1, comedy_2],
       "Drama":[drama_1, drama_2],
-      "Horor":[horror_1, horror_2, horror_3],
+      "Horror":[horror_1, horror_2, horror_3],
       "Romance":[romance_1, romance_2, romance_3],
       "Inspirational":[inspirational_1, inspirational_2, inspirational_3],
       "Fantasy":[fantasy_1, fantasy_2, fantasy_3],
@@ -102,7 +103,7 @@ class Dashboard extends Component {
                       <option value='Bedtime'>Bedtime</option>
                       <option value='Comedy'>Comedy</option>
                       <option value='Drama'>Drama</option>
-                      <option value='Horor'>Horor</option>
+                      <option value='Horror'>Horor</option>
                       <option value='Romance'>Romance</option>
                       <option value='Inspirational'>Inspirational</option>
                       <option value='Fantasy'>Fantasy</option>

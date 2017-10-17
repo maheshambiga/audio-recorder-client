@@ -46,35 +46,6 @@ export class Recorder {
 
   createWorker () {
 
-    /*if(document.location.host !== "localhost:7000"){
-      const MyWorker = require(`worker-loader!./recorderworker`);
-      this.worker = new MyWorker();
-    }else{//work around to load cross origin worker
-      var url = 'http://localhost:2992/js/d1336d9f6e2d0af8f7ac.worker.js';
-      var response;
-
-      var get = new XMLHttpRequest();
-      get.open("GET", url, true);
-      get.onreadystatechange = function() {
-        if(get.readyState == 4 && get.status == 200) {
-          console.log('ajax call successful');
-          response = get.responseText;
-        }
-      };
-      get.send();
-
-      var blob;
-      try {
-        blob = new Blob([response], {type: 'application/javascript'});
-      } catch (e) { // Backwards-compatibility
-        window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
-        blob = new BlobBuilder();
-        blob.append(response);
-        blob = blob.getBlob();
-      }
-      this.worker = new Worker(URL.createObjectURL(blob));
-
-    }*/
     const MyWorker = require(`worker-loader!./recorderworker`);
     this.worker = new MyWorker();
 

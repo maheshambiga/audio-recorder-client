@@ -8,7 +8,7 @@ import { browserHistory } from 'react-router';
 class AppComp extends Component {
 
   componentDidMount () {
-    const {authInfo} = this.props;
+    const {isLoggedIn} = this.props;
 
     const token = getStorage('token');
     if (token !== null) {
@@ -16,7 +16,10 @@ class AppComp extends Component {
       this.props.setAuthInfo({isLoggedIn: true, token: token});
     } else {
       //redirect to login page if token does not exist in the local storage
-      //browserHistory.push('/login');
+      if(!isLoggedIn){
+        browserHistory.push('/home');
+      }
+
     }
   }
   componentWillReceiveProps(nextProps){
