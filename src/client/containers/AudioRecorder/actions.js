@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as constants from './constants';
-
+import {UPLOAD_STORY_API} from './../../appConstants';
 export const addStoryRequest = () => {
   return {
     type: constants.ADD_STORY_REQUEST,
@@ -43,7 +43,7 @@ export const addStoryAPI = (data) => {
     blobToBase64(blob, (base64)=>{
       axios({
         method: 'post',
-        url: `http://localhost:3000/api/v1/uploadStory`,
+        url: UPLOAD_STORY_API,
         data:{blob: base64, storyName, genre}
       }).then((res)=>{resolve(res)}).catch((err)=>{reject(err)})
     });

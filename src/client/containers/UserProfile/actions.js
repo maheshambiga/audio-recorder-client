@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router';
 import {clearStorage} from './../App/actions';
+import { USER_PROFILE_API } from './../../appConstants';
 import {
   USER_PROFILE_REQUEST,
   USER_PROFILE_SUCCESS,
@@ -37,7 +38,7 @@ export const invalidateUserProfile = () => {
 const getUserProfileAPI = ()=> {
   return axios({
     method: 'get',
-    url: `http://localhost:3000/api/v1/auth/me`
+    url: USER_PROFILE_API
   });
 };
 

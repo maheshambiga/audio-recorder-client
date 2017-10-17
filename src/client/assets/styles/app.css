@@ -259,7 +259,7 @@ Dashboard
 }
 
 /*input styles*/
-.inputBoxShadow input[type="text"] {
+.inputBoxShadow input[type="text"], .inputBoxShadow input[type="password"]  {
   padding: 10px;
   border: solid 1px gainsboro;
   -webkit-transition: box-shadow 0.3s, border 0.3s;
@@ -267,7 +267,8 @@ Dashboard
   -o-transition: box-shadow 0.3s, border 0.3s;
   transition: box-shadow 0.3s, border 0.3s;
 }
-.inputBoxShadow input[type="text"]:focus, .style-1 input[type="text"].focus {
+.inputBoxShadow input[type="text"]:focus, .style-1 input[type="text"].focus,
+.inputBoxShadow input[type="password"]:focus, .style-1 input[type="password"].focus{
   border: solid 1px #707070;
   -webkit-box-shadow: 0 0 5px 1px #969696;
   -moz-box-shadow: 0 0 5px 1px #969696;

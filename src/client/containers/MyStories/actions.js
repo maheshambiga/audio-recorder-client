@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as constants from './constants';
-
+import {MY_STORIES_API} from './../../appConstants';
 export const getMyStoriesRequest = () => {
   return {
     type: constants.GET_MY_STORIES_REQUEST,
@@ -30,7 +30,7 @@ export const invalidateGetMyStories = () => {
 export const getMyStoriesAPI = (genre) => {
   return axios({
     method: 'get',
-    url: `http://localhost:3000/api/v1/myStories`,
+    url: MY_STORIES_API,
     params:{genre}
   });
 };

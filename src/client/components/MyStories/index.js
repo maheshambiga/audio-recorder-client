@@ -133,8 +133,10 @@ class MyStories extends Component {
                         </div>
                       </div>
                     );
-                  }) : <h5 className="text-secondary pad24 text-center">No items
-                    found!</h5>}
+                  }) : <div className="text-center">
+                    <p className="text-center fontSize_5">No items
+                      found!</p><p className="margin12 onlyTopMargin">Go ahead and record a story.</p>
+                  </div>}
                 </div>
 
               </div>}</section>

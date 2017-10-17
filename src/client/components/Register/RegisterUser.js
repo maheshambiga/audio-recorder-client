@@ -31,8 +31,8 @@ const validate = ({
 
 const renderField = field =>
   <div className="input-row inputBoxShadow">
-    <input {...field.input} placeholder={field.placeholder}
-           className="block width-100" type="text"/>
+    <input {...field.input} placeholder={field.placeholder} type={field.type}
+           className="block width-100" />
     {field.meta.touched &&
     field.meta.error &&
     <span className="color_959595">
@@ -40,7 +40,7 @@ const renderField = field =>
       </span>}
   </div>;
 
-const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser, result}) => {
+const RegisterUser = ({handleSubmit, valid, submitting, resetForm, registerNewUser, result}) => {
   const onToggleViewHandler = () => {
     toggleViewCallback('signin');
   };
@@ -82,14 +82,14 @@ const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser, result}
           <Field
             name="password"
             component={renderField}
-            type="text"
+            type="password"
             placeholder="Password"
             className="form-control"
           />
         </div>
 
         {typeof result.success !== typeof undefined &&
-        <p className="color_959595">{result.message}</p>}
+        <p className="color_red">{result.message}</p>}
         <div className="row">
 
 
@@ -100,7 +100,6 @@ const RegisterUser = ({handleSubmit, valid, submitting, registerNewUser, result}
               disabled={!valid || submitting}
               onClick={
                 handleSubmit(data => {
-
                   registerNewUser(data);
                 })}
             >

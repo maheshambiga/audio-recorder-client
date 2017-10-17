@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as constants from './constants';
-
+import {GET_STORY_API} from './../../appConstants';
 export const viewStoryRequest = () => {
   return {
     type: constants.VIEW_STORY_REQUEST,
@@ -30,7 +30,7 @@ export const invalidateviewStory = () => {
 export const viewStoryAPI = ({userId, storyId}) => {
   return axios({
     method: 'get',
-    url: `http://localhost:3000/api/v1/story`,
+    url: GET_STORY_API,
     params:{userId, storyId}
   });
 };
