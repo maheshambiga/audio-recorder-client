@@ -22,7 +22,7 @@ const validate = ({
 const renderField = field =>
   <div className="input-row inputBoxShadow">
     <input {...field.input} placeholder={field.placeholder}
-           className="block width-100" type="text"/>
+           className="block width-100 color_000" type="text"/>
     {field.meta.touched &&
     field.meta.error &&
     <span className="text-danger">
@@ -57,13 +57,15 @@ const StoryForm = ({handleSubmit, valid, submitting, storySubmitHandler, onCance
                 type="select"
                 className="form-control">
                 <option value='select'>Story Genre</option>
+                <option value='Adventure'>Adventure</option>
+                <option value='Bedtime'>Bedtime</option>
                 <option value='Comedy'>Comedy</option>
                 <option value='Drama'>Drama</option>
-                <option value='Horror fiction'>Horror fiction</option>
+                <option value='Horror'>Horor</option>
                 <option value='Romance'>Romance</option>
-                <option value='Tragedy'>Tragedy</option>
+                <option value='Inspirational'>Inspirational</option>
                 <option value='Fantasy'>Fantasy</option>
-                <option value='Mythology'>Mythology</option>
+                <option value='Self-help'>Self-help</option>
               </Field>
             </div>
 

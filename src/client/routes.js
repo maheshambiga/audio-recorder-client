@@ -14,7 +14,7 @@ import MyStories from './containers/MyStories';
 
 export const routes = (
   <Route path="/" component={App}>
-
+    <Redirect from="/" to="home" />
     <Route path="login" component={LoginPage}/>
     <Route path="register" component={RegisterUser}/>
     <Route path="home" component={HomePage}/>
@@ -25,6 +25,6 @@ export const routes = (
       <Route path='my-stories' component={MyStories}/>
       <Route path='story/:userId/:storyId' component={ViewStory}/>
     </Route>
-    <Redirect path="*" to="/"/>
+
   </Route>
 );
