@@ -1,4 +1,4 @@
-const API_DOMAIN = 'http://localhost:3000/';
+const API_DOMAIN = 'https://story-telling-apis.herokuapp.com/';
 
 export const LOGIN_API = `${API_DOMAIN}api/v1/login`;
 export const SIGN_UP_API = `${API_DOMAIN}api/v1/signup`;
