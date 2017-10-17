@@ -1,4 +1,6 @@
 import axios from 'axios';
+import {reset} from 'redux-form';
+import {browserHistory} from 'react-router';
 import {
   INVALIDATE_REGISTER_USER,
   REGISTER_USER_FAILURE,
@@ -51,8 +53,8 @@ export const registerNewUser = (userData) => {
     dispatch(registerUser());
     registerUserAPI(userData).then((res) => {
       if (res.data.success === true) {
-        //browserHistory.push('/login');
-
+        browserHistory.push('/login');
+        dispatch(reset('RegisterUser'));
       }
       dispatch(registerUserSuccess(res));
     }).catch((err) => {

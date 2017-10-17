@@ -22,8 +22,8 @@ const validate = ({
 
 const renderField = field =>
   <div className="input-row inputBoxShadow">
-    <input {...field.input} placeholder={field.placeholder}
-           className="block width-100" type="text"/>
+    <input {...field.input} placeholder={field.placeholder} type={field.type}
+           className="block width-100" />
     {field.meta.touched &&
     field.meta.error &&
     <span className="color_959595">
@@ -54,7 +54,7 @@ const CustomLogin = ({handleSubmit, valid, submitting, result, authenticateUser}
           <Field
             name="password"
             component={renderField}
-            type="text"
+            type="password"
             placeholder="Password"
             className="form-control"
           />
@@ -63,7 +63,7 @@ const CustomLogin = ({handleSubmit, valid, submitting, result, authenticateUser}
         {typeof result.success !== typeof undefined &&
         result.success === false &&
         <div className="col-lg-12 noSidePad">
-          <p className="color_959595">{result.message}</p>
+          <p className="color_red">{result.message}</p>
         </div>}
         <div className="row">
           <div className="col-xs-6">

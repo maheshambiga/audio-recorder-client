@@ -711,37 +711,6 @@ an acutal table.
   display: block
 }
 
-.flex {
-  display: flex;
-}
-
-/*
-*  Vertical Height for screen size,
-*  this propery sets screen size based height
-**/
-.vh50 {
-  height: 50vh;
-}
-
-.vh60 {
-  height: 60vh;
-}
-
-.vh70 {
-  height: 70vh;
-}
-
-.vh80 {
-  height: 80vh;
-}
-
-.vh90 {
-  height: 90vh;
-}
-
-.vh100 {
-  height: 100vh;
-}
 
 .img_boxShadow {
   -webkit-box-shadow: -6px -5px 23px -8px rgba(0, 0, 0, 0.35);

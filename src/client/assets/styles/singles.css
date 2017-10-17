@@ -58,3 +58,11 @@
 .background_themeColor {
     background-color: #01d5d8;
 }
+
+.bgCover{
+    background-size: cover;
+}
+
+.bg-top {
+    background-position: top;
+}
