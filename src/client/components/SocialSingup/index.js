@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
-
 import FacebookLogin from 'react-facebook-login';
 import {GOOGLE,FACEBOOK} from './../../containers/SocialSingup/constants';
 
@@ -46,8 +45,8 @@ const SocialSignup = ({registerUser}) => {
 
     <FacebookLogin onClick={onFacebookClickHandler}
                    callback={onFacebookSignInSuccssHandler}
-                   disableMobileRedirect={false}
-                   appId="507097652976160"
+                   disableMobileRedirect={true}
+                   appId="1715268488544801"
                    fields="name,email,picture"
                    cssClass="loginBtn m-facebook width-100" />
   </div>);
