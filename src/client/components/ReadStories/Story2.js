@@ -8,7 +8,7 @@ const Story2 = () => {
       <div className="row noMargin">
         <div className="storyBannerImg banner_story_2 layout horizontal vertical center-center">
           <div className="storyBannerImgTint">
-            <p className="color_FFF storyBannerText text-center noMargin">Happily, thereafter </p>
+            <p className="color_FFF storyBannerText text-center noMargin">Happily, thereafter.</p>
           </div>
         </div>
 

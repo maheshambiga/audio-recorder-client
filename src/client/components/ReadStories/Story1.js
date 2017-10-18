@@ -5,10 +5,11 @@ const Story1 = () => {
   return (<div className="background_dbdddd vh91">
 
     <div className="container storyWrapper">
+
         <div className="row noMargin">
           <div className="storyBannerImg banner_story_1 layout horizontal vertical center-center">
             <div className="storyBannerImgTint">
-              <p className="color_FFF storyBannerText text-center noMargin">The Princess and the Most Faithful Knight(Bedtime Story)</p>
+              <p className="color_FFF storyBannerText text-center noMargin">The Princess and the Most Faithful Knight</p>
             </div>
           </div>
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import Loader from '../common/Loader';
 import { GET_AUDIO_FILE_API } from './../../appConstants';
+import './../../assets/styles/audioPlayer.css';
+import AudioPlayer from 'react-responsive-audio-player';
 
 class ViewStory extends Component {
   constructor (props) {
@@ -35,14 +37,15 @@ class ViewStory extends Component {
               {isFetching === false && error === null &&
               Object.keys(result).length > 0 && <div className="clearfix">
                 <div className="row noMargin">
-                  <p>{result.data[0].story.storyName}</p>
-                  <p>{result.data[0].story.genre}</p>
+                  <div className="col-lg-12">
+                    <div className="listenStory">
+                      <p className="text-center pad24 onlyTopPad fontBradleyHandITC fontSize_7 fontWeightBold noMargin">{result.data[0].story.storyName}</p>
+                      <p className="center fontBradleyHandITC fontSize_6 fontWeightBold">{result.data[0].story.genre}</p>
+                    </div>
+                  </div>
                 </div>
-                <audio controls className="width-100">
-                  <source
-                    src={`${GET_AUDIO_FILE_API}/${result.data[0].story.path}`}
-                    type="audio/wav"/>
-                </audio>
+                <AudioPlayer playlist={[{ url: `${GET_AUDIO_FILE_API}/${result.data[0].story.path}`,
+                  displayText: `A story by ${result.data[0].createdBy}` }]} hideBackSkip={true} autoplay={false} hideForwardSkip={true} cycle={false} />
               </div>}
             </section>
           </div>

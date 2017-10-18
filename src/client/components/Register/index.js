@@ -17,7 +17,7 @@ class RegisterUser extends Component {
   render () {
     const {isFetching, error, result} = this.props;
     return (
-      <div className="loginBackground">
+      <div className="loginBackground vh91 layout vertical center-center">
         <div className="container">
           <div className="margin24 noSideMargin">
             <section className="row">
@@ -26,7 +26,7 @@ class RegisterUser extends Component {
                 wrong!</h3>}
               {isFetching && !error && <Loader/>}
 
-              <div className="col-lg-7 col-lg-push-1">
+              <div className="col-lg-7 ">
 
                 <p className="fontSize_9_5 color_FFF fontBradleyHandITC">Get
                   your headphones
