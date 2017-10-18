@@ -1,7 +1,7 @@
 {
   "valid": true,
   "version": "1.6.4",
-  "timestamp": 1507473839933,
+  "timestamp": 1508328892191,
   "context": "src/client",
   "output": {
     "path": "dist/js",
@@ -9,11 +9,38 @@
     "publicPath": "http://localhost:2992/js/"
   },
   "assets": {
-    "marked": {},
+    "marked": {
+      "src/client/assets/images/icons/adventure_1.png": "45502184142fbb73ccb914a1abf2f501.png",
+      "src/client/assets/images/icons/adventure_2.png": "4b59c0df1d870c6835ccc35b47b884fe.png",
+      "src/client/assets/images/icons/adventure_3.png": "ec75557825d797dddac81f2a453d7107.png",
+      "src/client/assets/images/icons/bedtime_1.png": "7ba596878289d1599a961e8acbc642cd.png",
+      "src/client/assets/images/icons/bedtime_2.png": "b19726706633d3c5b856613bd43cfd7d.png",
+      "src/client/assets/images/icons/bedtime_3.png": "34ccec9e4ed0bbdbaf4c6fc8eab6bd29.png",
+      "src/client/assets/images/icons/comedy_1.png": "db34310e1ef4976fc9baac9a6a1981ed.png",
+      "src/client/assets/images/icons/comedy_2.png": "0af15c63ab699e331a067214942464f2.png",
+      "src/client/assets/images/icons/drama_1.png": "18a715ce7de195bce6572dfb425a6cdf.png",
+      "src/client/assets/images/icons/drama_2.png": "2efc41d909dbf0cb94ae8194b5ebd436.png",
+      "src/client/assets/images/icons/fantasy_1.png": "a7859830dd307869e77b4bebbb6e1c08.png",
+      "src/client/assets/images/icons/fantasy_2.png": "3f6f85d31f1efa00d06d2369c7232bd1.png",
+      "src/client/assets/images/icons/fantasy_3.png": "d7a13c86a8524449a1c7090f3dacb9f3.png",
+      "src/client/assets/images/icons/horror_1.png": "513aa131e754a91c6f420d7facc88079.png",
+      "src/client/assets/images/icons/horror_2.png": "8eea9bd530e9a795623dd8a8d36af5b0.png",
+      "src/client/assets/images/icons/horror_3.png": "e4f51d87e965d817aa205eba49da9fe9.png",
+      "src/client/assets/images/icons/inspirational_1.png": "2b08691efd470269eb885432137517a8.png",
+      "src/client/assets/images/icons/inspirational_2.png": "32b49275e70b82f73d06027362872b25.png",
+      "src/client/assets/images/icons/inspirational_3.png": "75a2cbc6332d7dfab924f10d44e38a54.png",
+      "src/client/assets/images/icons/romance_1.png": "217424c893468c3b05312defb6e1ae96.png",
+      "src/client/assets/images/icons/romance_2.png": "88e1648809767aec7d584124bde281de.png",
+      "src/client/assets/images/icons/romance_3.png": "b704a049e71fcf4bcc40ba1bfe5c84e4.png",
+      "src/client/assets/images/icons/selfhelp_1.png": "ba05064de3a9174c3f6c9e912e9daf35.png",
+      "src/client/assets/images/icons/selfhelp_2.png": "cdf8306bf4299aba8b8369666a11c127.png",
+      "src/client/assets/images/icons/selfhelp_3.png": "b8e2ebcab73f9c547176f8039f793466.png",
+      "src/client/assets/images/logo.png": "7400545aafc1dd261ef6c8486fd77989.png"
+    },
     "chunks": {
       "main": [
         "main.bundle.dev.js",
-        "main.style.0a35fb4b09c54de1a4e2.css",
+        "main.style.bd330e83733e5cc7da7e.css",
         "main.style.css"
       ]
     }
