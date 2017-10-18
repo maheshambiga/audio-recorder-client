@@ -5,16 +5,7 @@ body {
   height: 100%
 }
 
-.pageWrapper{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-.body-container{
-  flex-grow: 1;
-  position: relative;
-  top: 60px;
-}
+
 
 
 
@@ -28,11 +19,10 @@ body {
 
 .appFooter {
   padding: 10px 0;
-  top:60px;
   text-align: center;
+  position:relative;
+  top:60px;
   background-color: #222;
-  position: relative;
-
   background-image: -webkit-linear-gradient(top, #3c3c3c 0%, #222 100%);
   background-image:      -o-linear-gradient(top, #3c3c3c 0%, #222 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#3c3c3c), to(#222));

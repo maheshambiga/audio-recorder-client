@@ -7,29 +7,29 @@ import { browserHistory } from 'react-router';
 
 class AppComp extends Component {
 
-  componentDidMount () {
-    const {isLoggedIn} = this.props;
+  componentDidMount() {
+    const { isLoggedIn } = this.props;
 
     const token = getStorage('token');
     if (token !== null) {
       //if token exists in the local storage, set it in the app state
-      this.props.setAuthInfo({isLoggedIn: true, token: token});
+      this.props.setAuthInfo({ isLoggedIn: true, token: token });
     } else {
       //redirect to login page if token does not exist in the local storage
-      if(!isLoggedIn){
+      if (!isLoggedIn) {
         browserHistory.push('/home');
       }
 
     }
   }
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     //set redirect URL if user is logged in and location is not login so that user could land on the same page as while logging out.
-    if(this.props.isLoggedIn && nextProps.location.pathname !== '/login' && this.props.location.pathname !== nextProps.location.pathname){
+    if (this.props.isLoggedIn && nextProps.location.pathname !== '/login' && this.props.location.pathname !== nextProps.location.pathname) {
       this.props.setRedirectUrl(nextProps.location.pathname);
     }
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
 
     const isLoggingOut = prevProps.isLoggedIn && !this.props.isLoggedIn;
     const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn;
@@ -48,20 +48,19 @@ class AppComp extends Component {
     }
   }
 
-  render () {
-    const {isLoggedIn} = this.props;
-    return (<section id="outer-container">
+  render() {
+    const { isLoggedIn } = this.props;
+    return (<section id="outer-container" style={{ position: 'relative', minHeight:"100vh"}}>
       {isLoggedIn && <BurgerMenu />}
-      <main className="pageWrapper" id="page-wrap">
-        <Header/>
-        <div className="body-container">
-          <section id="body-wrapper" className=" overFlowWrap">
+      <div id="page-wrap">
+        <Header />
+        <main className="body-container" style={{ minHeight: "70vh", position: "relative", top: "60px" }}>
+          <section id="body-wrapper" className="overFlowWrap">
             {this.props.children}
           </section>
-
-        </div>
-        <Footer/>
-      </main>
+        </main>
+        <Footer />
+      </div>
     </section>);
   }
 }
