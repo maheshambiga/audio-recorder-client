@@ -20,15 +20,15 @@ class BurgerMenu extends Component {
     return [
       {
         'id': 'dashboard',
-        'label': 'Dashboard',
+        'label': 'Stories',
         'link': '/dashboard',
-        'iconClass': 'icon-files-empty',
+        'iconClass': 'icon-headphones',
       },
       {
         'id': 'mystories',
         'label': 'My Stories',
         'link': '/my-stories',
-        'iconClass': 'icon-file-video',
+        'iconClass': 'icon-sound',
       },
       {
         'id': 'recordstory',
@@ -40,7 +40,7 @@ class BurgerMenu extends Component {
         'id': 'stories',
         'label': 'Read Stories',
         'link': '/stories',
-        'iconClass': 'icon-mic',
+        'iconClass': 'icon-notebook',
       }
 
     ];

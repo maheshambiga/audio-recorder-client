@@ -21,7 +21,6 @@ const Stories = () => {
 
       </div>
     </div>
-
   );
 };
 
