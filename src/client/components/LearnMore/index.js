@@ -6,7 +6,7 @@ const LearnMore = (props) => {
 
   return (
 
-    <div className="background_themeColor">
+    <div className="background_themeColor vh91">
       <div className="container">
         <div className="margin24 noSideMargin">
           <div className="row noMargin">
@@ -15,7 +15,7 @@ const LearnMore = (props) => {
             </div>
             <div className="learnMoreRightSection color_FFF pull-right">
               <p className="fontSize_9_2 bold fontBradleyHandITC">Your own stories</p>
-              <p>Everyone gets a little down in the dumps sometimes. Rather than searching the internet for cat pictures and drownin your sorrows in junk, check out these short stories. We have put together the best short stories, both real and finctional, to pull you from your sump, make your simile and inspire you.</p>
+              <p>Everyone gets a little down in the dumps sometimes. Rather than searching the internet for cat pictures and drowning your sorrows in junk, check out these short stories. We have put together the best short stories, both real and fictional, to pull you from your sump, make you simile and inspire you.</p>
             </div>
 
           </div>

@@ -34,7 +34,7 @@
 /* General sidebar styles */
 .bm-menu {
     background: #373a47;
-    background: linear-gradient(to bottom, #333333 4em, #222222 calc(4em - 100%));
+    /*background: linear-gradient(to bottom, #333333 4em, #222222 calc(4em - 100%));*/
     padding: 0 0 0;
     font-size: 1.15em;
 }
@@ -69,11 +69,16 @@
 }
 
 .menu-item {
-    background: #222222;
+    background: #373a47;
 }
 
-.menu-item:hover {
-    color: #747676;
+.bm-menu a {
+    color: #b8b7ad;
+    font-weight: 700;
+}
+.bm-menu a:hover,
+.bm-menu a:focus {
+    color: #c94e50;
     text-decoration-line: none;
 }
 
@@ -92,6 +97,8 @@
     background-color: #3f3f3f;
 
 }
+
+
 
 .submenu-icon {
     max-width: 35px;

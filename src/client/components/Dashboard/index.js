@@ -81,7 +81,7 @@ class Dashboard extends Component {
     const {isFetching, error, result, filterBy} = this.props;
 
     return (
-      <div className="background_themeColor">
+      <div className="background_themeColor vh91">
         <div className="container">
           <div className="margin24 noSideMargin">
             <section>

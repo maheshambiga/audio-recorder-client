@@ -20,7 +20,7 @@ class Header extends Component {
   render () {
     const {authInfo} = this.props;
     return (
-      <nav className="navbar navbar-inverse navbar-fixed-top">
+      <nav className="navbar navbar-inverse navbar-fixed-top vh11">
         <div className="container">
           <div className="navbar-header">
 

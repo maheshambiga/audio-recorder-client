@@ -52,14 +52,15 @@ class AppComp extends Component {
     const {isLoggedIn} = this.props;
     return (<section id="outer-container">
       {isLoggedIn && <BurgerMenu />}
-      <main id="page-wrap">
+      <main className="pageWrapper" id="page-wrap">
         <Header/>
         <div className="body-container">
-        <section id="body-wrapper" className=" overFlowWrap">
-          {this.props.children}
-        </section>
-        <Footer/>
+          <section id="body-wrapper" className=" overFlowWrap">
+            {this.props.children}
+          </section>
+
         </div>
+        <Footer/>
       </main>
     </section>);
   }
