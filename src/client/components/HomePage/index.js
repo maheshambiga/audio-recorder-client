@@ -17,18 +17,9 @@ const HomePage = (props) => {
         <div className="margin24 noSideMargin">
           <div className="row noMargin">
             <div className="homePageLeftSection color_FFF">
-              <p className="fontSize_9_2 bold">Interesting concepts to set your
+              <p className="fontSize_9_2 bold">Interesting stories to set your
                 mind in your wave.</p>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.</p>
+              <p>Hear directly from the people who know it best. From tech to politics to creativity and more — whatever your interest, we’ve got you covered.</p>
             </div>
             <div>
               <div className="homePageTree"/>

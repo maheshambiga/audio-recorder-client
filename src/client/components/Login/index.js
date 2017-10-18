@@ -23,23 +23,25 @@ class LoginPage extends Component {
   render () {
     const {isFetching, error, result} = this.props;
     return (
-      <div className="loginBackground vh91">
-        <div className="container">
-          <div className="margin24 noSideMargin">
-            <section className="row">
-              {error &&
-              <h3 className="text-danger text-center">Something went wrong!</h3>}
-              {isFetching && !error && <Loader/>}
-              <div className="col-lg-7 col-sm-12 col-lg-push-1">
-                <p className="fontSize_9_5 color_FFF fontBradleyHandITC">Get your headphones ready</p>
-              </div>
-              <div className="col-lg-3 col-sm-12">
-                <CustomLoginForm {...this.props}/>
-                <SocialSignup/>
+      <div className="loginBackground vh91 layout vertical center-center">
+        <div className="">
+          <div className="container ">
+            <div className="margin24 noSideMargin">
+              <section className="row">
+                {error &&
+                <h3 className="text-danger text-center">Something went wrong!</h3>}
+                {isFetching && !error && <Loader/>}
+                <div className="col-lg-7 col-sm-12 col-lg-push-1">
+                  <p className="fontSize_9_5 color_FFF fontBradleyHandITC">Get your headphones ready</p>
+                </div>
+                <div className="col-lg-3 col-sm-12">
+                  <CustomLoginForm {...this.props}/>
+                  <SocialSignup/>
 
-              </div>
+                </div>
 
-            </section>
+              </section>
+            </div>
           </div>
         </div>
       </div>);

@@ -14,6 +14,7 @@ class AudioRecorder extends Component {
     this.main = new Main();
     this.main.initAudio.bind(this.main);
 
+
     this.state = {isRecording: false, showForm: false, audioBlob: '', timeElapsed:''};
 
     this.onToggleRecording = this.onToggleRecording.bind(this);
@@ -24,7 +25,7 @@ class AudioRecorder extends Component {
   }
 
   componentDidMount () {
-    this.main.initAudio();
+    navigator.getUserMedia && this.main.initAudio();
     this.setCanvasSizeProps();
 
   }
@@ -66,7 +67,7 @@ class AudioRecorder extends Component {
     if (this.state.isRecording && this.main !== null) {
       this.main.startRecording();
     }
-    this.main.audioContext.close();
+    navigator.getUserMedia && this.main.audioContext.close();
   }
 
   onCancelRecording () {
@@ -106,7 +107,7 @@ class AudioRecorder extends Component {
   render () {
     const btnLabel = (this.state.isRecording) ? 'Save' : 'Record';
     return (
-      <section className="background_themeColor vh91">
+      <section className="background_959595 vh91">
 
         {this.state.showForm && <div className="overlay modalContent">
           <div className="modalBody color_FFF">
@@ -116,14 +117,14 @@ class AudioRecorder extends Component {
         </div>}
 
         <div className="audioRecorder">
-          <div
-            className={`icon-mic text-center audioMic cursorHand ${this.state.isRecording
+          {navigator.getUserMedia && <div className={`icon-mic text-center color_FFF audioMic cursorHand ${this.state.isRecording
               ? 'm-active'
-              : ''}`} onClick={this.onToggleRecording}/>
+              : ''}`} onClick={this.onToggleRecording}/>}
+          {!navigator.getUserMedia && <p className="fontSize_8 color_FFF text-center">Native device media(getUserMedia) not supported in this browser.</p>}
           {this.state.isRecording && <span className="color_747676 bold fontSize_9_5">{this.state.timeElapsed}</span>}
         </div>
 
-        <canvas id="analyser"/>
+        <canvas id="analyser" style={{'border':'1px solid red'}}/>
 
 
       </section>);

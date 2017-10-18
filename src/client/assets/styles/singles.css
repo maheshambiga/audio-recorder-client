@@ -61,6 +61,9 @@
 .background_dbdddd {
     background-color: #dbdddd;
 }
+.background_959595 {
+    background-color: #959595;
+}
 .bgCover{
     background-size: cover;
 }
@@ -78,3 +81,16 @@
     min-height:91vh;
 }
 
+.fontMYRIADPROREGULAR{
+    font-family: MYRIADPROREGULAR, Arial, Helvetica, sans-serif;
+}
+.fontBradleyHandITC{
+    font-family: BradleyHandITC, Arial, Helvetica, sans-serif;
+}
+.fontWeightBold{
+    font-weight: bold;
+}
+
+.height100{
+    height:100%;
+}
