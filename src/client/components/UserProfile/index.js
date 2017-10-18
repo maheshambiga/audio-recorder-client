@@ -40,7 +40,7 @@ class UserProfile extends Component {
           <div className="profileImage margin6 on onlyRightMargin">
             <img className="width-100 pull-left " src={picture}/>
           </div>
-          <span className="pull-right color_FFF">{name}</span>
+          <span className="pull-right color_FFF fontWeightBold">{name}</span>
         </div>
 
       </section>

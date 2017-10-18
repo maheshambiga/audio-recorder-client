@@ -23,7 +23,7 @@ class LoginPage extends Component {
   render () {
     const {isFetching, error, result} = this.props;
     return (
-      <div className="loginBackground">
+      <div className="loginBackground vh91">
         <div className="container">
           <div className="margin24 noSideMargin">
             <section className="row">

@@ -106,7 +106,7 @@ class AudioRecorder extends Component {
   render () {
     const btnLabel = (this.state.isRecording) ? 'Save' : 'Record';
     return (
-      <section>
+      <section className="background_themeColor vh91">
 
         {this.state.showForm && <div className="overlay modalContent">
           <div className="modalBody color_FFF">

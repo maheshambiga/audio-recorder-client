@@ -95,7 +95,7 @@ class BurgerMenu extends Component {
                    this.onSelectMenu(evt, menuItem.link, menuItem.id);
                  }}>
                 <div className="onlyLeftPad pad24">
-                  <span className={`fontSize_8 margin18 onlyRightMargin color_747676 ${menuItem.iconClass}`}/>
+                  <span className={`fontSize_8 margin18 onlyRightMargin ${menuItem.iconClass}`}/>
                   <span>{menuItem.label}</span>
                 </div>
               </a>
@@ -106,7 +106,7 @@ class BurgerMenu extends Component {
           className="menu-item block border_33 onlyBottomBorder bold  color_FFF fontSize_5 lineHeight36 pad20 noSidePad"
           href="javascript:void(0);" onClick={this.onLogoutHandler}>
           <div className="onlyLeftPad pad24">
-            <span className="fontSize_8 margin18 onlyRightMargin color_747676 icon-logout"/>
+            <span className="fontSize_8 margin18 onlyRightMargin icon-logout"/>
             <span>Logout</span>
           </div>
 

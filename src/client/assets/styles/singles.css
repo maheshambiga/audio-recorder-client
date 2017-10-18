@@ -58,7 +58,9 @@
 .background_themeColor {
     background-color: #01d5d8;
 }
-
+.background_dbdddd {
+    background-color: #dbdddd;
+}
 .bgCover{
     background-size: cover;
 }
@@ -66,3 +68,13 @@
 .bg-top {
     background-position: top;
 }
+
+.textItalic{
+    font-style: italic;
+}
+
+
+.vh91{
+    min-height:91vh;
+}
+
