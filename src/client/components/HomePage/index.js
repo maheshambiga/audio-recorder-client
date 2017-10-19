@@ -14,7 +14,7 @@ const HomePage = (props) => {
 
     <div className="background_themeColor vh91 homepage_bg">
       <div className="container ">
-        <div className="row">
+        <div className="row margin24 onlyTopMargin">
           <div className="col-xs-12 col-md-6 color_FFF">
             <p className="fontSize_9_2 bold">Interesting stories to set your
                 mind in your wave.</p>
