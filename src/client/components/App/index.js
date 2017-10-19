@@ -50,7 +50,7 @@ class AppComp extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
-    return (<section id="outer-container" style={{ position: 'relative', minHeight:"100vh"}}>
+    return (<section id="outer-container" style={{ position: 'relative', minHeight: "100vh" }}>
       {isLoggedIn && <BurgerMenu />}
       <div id="page-wrap">
         <Header />
