@@ -125,6 +125,11 @@ body {
   Home page
  */
 
+ .homepage_bg{
+   background-image:url(./../images/tree.svg);
+   background-repeat:no-repeat;
+   background-position: right 20%;
+ }
 
 .homePageTree{
   display: block;
