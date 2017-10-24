@@ -44,8 +44,14 @@ class ViewStory extends Component {
                     </div>
                   </div>
                 </div>
-                <AudioPlayer playlist={[{ url: `${GET_AUDIO_FILE_API}/${result.data[0].story.path}`,
-                  displayText: `A story by ${result.data[0].createdBy}` }]} hideBackSkip={true} autoplay={false} hideForwardSkip={true} cycle={false} />
+                <AudioPlayer
+                  playlist={[{ url: `${GET_AUDIO_FILE_API}/${result.data[0].story.path}`,
+                  displayText: `A story by ${result.data[0].createdBy}` }]}
+                             hideBackSkip={true}
+                             autoplay={true}
+                             autoplayDelayInSeconds={2}
+                             hideForwardSkip={true} c
+                             ycle={false} />
               </div>}
             </section>
           </div>
