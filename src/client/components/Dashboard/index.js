@@ -129,7 +129,14 @@ class Dashboard extends Component {
                           </div>
                           <div className="dashBoardStoryName pad12 onlyLeftPad">
                             <p className="fontSize_8 overFlowWrap">{result.story.storyName}</p>
-                            <p>By: {result.createdBy}</p>
+                            <div className="layout horizontal start-justified center">
+
+                              <div className="dashBoardStoryUserImage margin6 on onlyRightMargin">
+                                <img className="width-100 pull-left " src={result.picture}/>
+                              </div>
+                              <span className="pull-right color_FFF fontWeightBold">{result.createdBy}</span>
+                            </div>
+
                             <Link className="color_666 textUnderline"
                               to={`story/${result._id}/${result.story._id}`}>Listen</Link>
                           </div>

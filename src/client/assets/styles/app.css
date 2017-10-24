@@ -173,7 +173,19 @@ Dashboard
   background-color: #3f3f3f;
   border-radius: 20px;
 }
+.dashBoardStoryUserImage{
+  display: block;
+  height: 65px;
+  width: 65px;
+  background-size: 100%;
+  border-radius: 68px;
+  box-shadow: none;
+  cursor: pointer;
+  float: left;
+  position: relative;
+  overflow: hidden;
 
+}
 /*Dropdown*/
 
 
