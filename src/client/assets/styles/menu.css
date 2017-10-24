@@ -56,7 +56,6 @@
 /* Wrapper for item list */
 .bm-item-list {
     height: 100% !important;
-    overflow: scroll;
     border-top: 1px solid #333;
     padding-bottom: 72px;
 }
