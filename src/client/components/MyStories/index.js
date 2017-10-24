@@ -120,15 +120,20 @@ class MyStories extends Component {
                       <div
                         className="col-xs-12 col-md-6 col-sm-6 col-lg-6 border border-success margin12 onlyBottomMargin"
                         key={`story-${id}`}>
-                        <div className="layout horizontal color_FFF start-justified center">
+                        <div className="layout horizontal color_FFF start-justified">
                           <div className="dashBoardStoryBox ">
                             <div className="dashBoardStoryBoxImg" style={storyCoverPhoto}/>
                           </div>
-                          <div className="dashBoardStoryName pad12 onlyLeftPad">
+                          <div className="layout vertical color_FFF start-justified margin24 onlyLeftMargin center-justified">
                             <p className="fontSize_8 overFlowWrap">{result.story.storyName}</p>
-                            <p>By: {result.createdBy}</p>
+                            <div className="layout horizontal start-justified center margin12 onlyBottomMargin">
+                              <div className="dashBoardStoryUserImage margin6 on onlyRightMargin">
+                                <img className="width-100 pull-left " src={result.picture}/>
+                              </div>
+                              <span className="pull-right color_FFF fontWeightBold">{result.createdBy}</span>
+                            </div>
                             <Link className="color_666 textUnderline"
-                              to={`story/${result._id}/${result.story._id}`}>Listen</Link>
+                                  to={`story/${result._id}/${result.story._id}`}>Listen</Link>
                           </div>
 
                         </div>
