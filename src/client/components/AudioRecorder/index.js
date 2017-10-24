@@ -33,10 +33,11 @@ class AudioRecorder extends Component {
   setCanvasSizeProps () {
     const footerHeight = 81;
     const headerHeight = 60;
+    const topMargin = 60;
     const pageWidth = document.getElementById('body-wrapper').offsetWidth;
     document.getElementById('analyser').
       setAttribute('style', `width:${pageWidth}px;height:${window.innerHeight -
-      (footerHeight + headerHeight)}px`);
+      (footerHeight + headerHeight + topMargin)}px`);
 
   }
 
@@ -121,7 +122,7 @@ class AudioRecorder extends Component {
               ? 'm-active'
               : ''}`} onClick={this.onToggleRecording}/>}
           {!navigator.getUserMedia && <p className="fontSize_8 color_FFF text-center">Native device media(getUserMedia) not supported in this browser.</p>}
-          {this.state.isRecording && <span className="color_747676 bold fontSize_9_5">{this.state.timeElapsed}</span>}
+          {this.state.isRecording && <span className="color_FFF bold fontSize_9_5">{this.state.timeElapsed}</span>}
         </div>
 
         <canvas id="analyser" style={{'border':'1px solid red'}}/>
