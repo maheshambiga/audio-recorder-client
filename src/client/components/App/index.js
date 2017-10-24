@@ -50,11 +50,11 @@ class AppComp extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
-    return (<section id="outer-container" style={{ position: 'relative', minHeight: "100vh" }}>
+    return (<section id="outer-container">
       {isLoggedIn && <BurgerMenu />}
       <div id="page-wrap">
         <Header />
-        <main className="body-container" style={{ minHeight: "70vh", position: "relative", top: "60px" }}>
+        <main className="body-container">
           <section id="body-wrapper" className="overFlowWrap">
             {this.props.children}
           </section>

@@ -37,7 +37,7 @@ const SocialSignup = ({registerUser}) => {
       token: accessToken
     });
   };
-  return (<div className=" margin24 noSideMargin">
+  return (<div className=" margin24 onlyTopMargin">
     <GoogleLogin onSuccess={onGoogleSignInSuccssHandler}
                  onFailure={onGoogleSignInFailureHandler}
                  clientId="6508075040-nv97qej2oqcr2fagj5b55ci5vluesj9t.apps.googleusercontent.com"

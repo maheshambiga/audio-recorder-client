@@ -31,13 +31,15 @@ class LoginPage extends Component {
                 {error &&
                 <h3 className="text-danger text-center">Something went wrong!</h3>}
                 {isFetching && !error && <Loader/>}
-                <div className="col-lg-7 col-sm-12 col-lg-push-1">
+                <div className="layout horizontal center-center">
+                <div className="col-lg-7 col-sm-12">
                   <p className="fontSize_9_5 color_FFF fontBradleyHandITC">Get your headphones ready</p>
                 </div>
                 <div className="col-lg-3 col-sm-12">
                   <CustomLoginForm {...this.props}/>
                   <SocialSignup/>
 
+                </div>
                 </div>
 
               </section>
