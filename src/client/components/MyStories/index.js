@@ -73,7 +73,9 @@ class MyStories extends Component {
     const random = this.getRandomArbitrary(0, catImgsArr.length-1);
     return catImgsArr[random];
   }
-
+  onRemoveStoryHandler({userId, storyId}){
+    this.props.removeStory({userId, storyId, filterBy:this.props.filterBy});
+  }
 
   render () {
     const {isFetching, error, result, filterBy} = this.props;
@@ -111,29 +113,26 @@ class MyStories extends Component {
 
                 </div>
                 <div className="row margin36 onlyTopMargin">
-                  {result.data.length > 0 ? result.data.map((result, id) => {
+                  {result.data.length > 0 ? result.data.map((user, id) => {
                     const storyCoverPhoto = {
-                      backgroundImage: 'url('+this.getImage(result.story.genre)+')',
+                      backgroundImage: 'url('+this.getImage(user.story.genre)+')',
                       backgroundSize: 'contain'
                     };
                     return (
                       <div
-                        className="col-xs-12 col-md-6 col-sm-6 col-lg-6 border border-success margin12 onlyBottomMargin"
+                        className="col-xs-12 col-md-6 col-sm-6 col-lg-6 border border-success margin12 onlyBottomMargin noPad"
                         key={`story-${id}`}>
                         <div className="layout horizontal color_FFF start-justified">
                           <div className="dashBoardStoryBox ">
                             <div className="dashBoardStoryBoxImg" style={storyCoverPhoto}/>
                           </div>
                           <div className="layout vertical color_FFF start-justified margin24 onlyLeftMargin center-justified">
-                            <p className="fontSize_8 overFlowWrap">{result.story.storyName}</p>
-                            <div className="layout horizontal start-justified center margin12 onlyBottomMargin">
-                              <div className="dashBoardStoryUserImage margin6 on onlyRightMargin">
-                                <img className="width-100 pull-left " src={result.picture}/>
-                              </div>
-                              <span className="pull-right color_FFF fontWeightBold">{result.createdBy}</span>
-                            </div>
-                            <Link className="color_666 textUnderline"
-                                  to={`story/${result._id}/${result.story._id}`}>Listen</Link>
+                            <p className="fontSize_8 overFlowWrap">{user.story.storyName}</p>
+                            <p className="fontSize_4 text-uppercase textItalic overFlowWrap">{user.story.genre}</p>
+                            <Link className="color_666 textUnderline margin12 onlyBottomMargin"
+                                  to={`story/${user._id}/${user.story._id}`}>Listen</Link>
+                            <a href="javascript:void(0);" className="color_666 textUnderline" onClick={()=>{this.onRemoveStoryHandler({userId:user._id, storyId:user.story._id})}}>Remove</a>
+
                           </div>
 
                         </div>
