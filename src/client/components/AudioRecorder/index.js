@@ -31,13 +31,10 @@ class AudioRecorder extends Component {
   }
 
   setCanvasSizeProps () {
-    const footerHeight = 81;
-    const headerHeight = 60;
-    const topMargin = 60;
     const pageWidth = document.getElementById('body-wrapper').offsetWidth;
+    const pageHeight = document.getElementById('body-wrapper').offsetHeight;
     document.getElementById('analyser').
-      setAttribute('style', `width:${pageWidth}px;height:${window.innerHeight -
-      (footerHeight + headerHeight + topMargin)}px`);
+      setAttribute('style', `width:${pageWidth}px;height:${pageHeight}px`);
 
   }
 
