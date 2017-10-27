@@ -137,7 +137,7 @@ body {
  .homepage_bg{
    background-image:url(./../images/tree.svg);
    background-repeat:no-repeat;
-   background-position: right 20%;
+   background-position: right bottom;
  }
 
 .homePageTree{
@@ -164,7 +164,8 @@ Dashboard
 }
 .dashBoardStoryBox{
   padding: 10px;
-  background-color: #fc6c77;
+  background-color: #01d5d8;
+
 
 }
 .dashBoardStoryBoxImg{
@@ -198,7 +199,7 @@ Dashboard
 }
 
 .custom-dropdown select {
-  background-color: #1abc9c;
+  background-color: #01d5d8;
   color: #fff;
   font-size: inherit;
   padding: .5em;
@@ -263,7 +264,11 @@ Dashboard
 .audioMic.m-active{
   color: #cd040b;
 }
-
+.audioRecorderTreeTech{
+  background: url(./../images/tree-tech.png) no-repeat center;
+  background-size: contain;
+  background-position: left 30% bottom 100px;
+}
 /*Overlay*/
 .overlay {
   position: fixed;
@@ -349,6 +354,11 @@ Dashboard
   height:510px;
 
 }
+.borderImage{
+  background:linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("./../images/side-bar1.png") repeat-y top left, url("./../images/side-bar2.png") repeat-y top right;
+  background-size: 150px;
+
+}
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
 
@@ -394,14 +404,18 @@ Dashboard
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
   .dashBoardStoryBox{
-    padding: 20px;
-    background-color: #fc6c77;
-
+    padding: 10px;
   }
   .dashBoardStoryBoxImg{
     min-width: 120px;
     min-height: 120px;
     background-color: #3f3f3f;
+  }
+  .borderImage{
+    background-size: 100px;
+  }
+  .audioRecorderTreeTech{
+    background-position: left -120px bottom 130px;
   }
 }
 
@@ -467,12 +481,13 @@ Dashboard
 
   .dashBoardStoryBox{
     padding: 10px;
-    background-color: #fc6c77;
-
   }
   .dashBoardStoryBoxImg{
     min-width: 140px;
     min-height: 140px;
     background-color: #3f3f3f;
+  }
+  .borderImage{
+    background-size: 100px;
   }
 }

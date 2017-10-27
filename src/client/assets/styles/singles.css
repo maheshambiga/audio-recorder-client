@@ -94,3 +94,12 @@
 .height100{
     height:100%;
 }
+
+.brealAll{
+    word-break: break-all;
+}
+.hyphenAuto{
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}

@@ -67,7 +67,7 @@ class MyStories extends Component {
   render () {
     const {isFetching, error, result, filterBy} = this.props;
     return (
-      <div className="background_themeColor vh91">
+      <div className="vh91 borderImage">
         <div className="container">
           <div className="margin24 noSideMargin">
             <section>
@@ -80,7 +80,7 @@ class MyStories extends Component {
 
                 <div className="row">
                   <div className="col-lg-12">
-                    <span> Filter by:</span>
+                    <span className="fontWeightBold"> Filter by:</span>
                     <span className="custom-dropdown margin12 onlyLeftMargin">
                     <select value={filterBy}
                             onChange={this.onGenreChange.bind(this)}>
@@ -99,6 +99,7 @@ class MyStories extends Component {
                   </div>
                 </div>
                 <div className="row margin36 onlyTopMargin">
+
                   {result.data.length > 0 ? result.data.map((user, id) => {
                     const storyCoverPhoto = {
                       backgroundImage: 'url('+this.getImage(user.story.genre)+')',
@@ -112,12 +113,12 @@ class MyStories extends Component {
                           <div className="dashBoardStoryBox ">
                             <div className="dashBoardStoryBoxImg" style={storyCoverPhoto}/>
                           </div>
-                          <div className="layout vertical color_FFF start-justified margin24 onlyLeftMargin center-justified">
-                            <p className="fontSize_8 overFlowWrap">{user.story.storyName}</p>
+                          <div className="layout vertical color_000 start-justified margin24 onlyLeftMargin center-justified brealAll">
+                            <p className="fontSize_8 overFlowWrap ">{user.story.storyName}</p>
                             <p className="fontSize_4 text-uppercase textItalic overFlowWrap">{user.story.genre}</p>
-                            <Link className="color_666 textUnderline margin12 onlyBottomMargin"
+                            <Link className="color_blue_two textUnderline margin12 onlyBottomMargin"
                                   to={`story/${user._id}/${user.story._id}`}>Listen</Link>
-                            <a href="javascript:void(0);" className="color_666 textUnderline" onClick={()=>{this.onRemoveStoryHandler({userId:user._id, storyId:user.story._id})}}>Remove</a>
+                            <a href="javascript:void(0);" className="color_blue_two textUnderline" onClick={()=>{this.onRemoveStoryHandler({userId:user._id, storyId:user.story._id})}}>Remove</a>
 
                           </div>
 
@@ -125,7 +126,7 @@ class MyStories extends Component {
                       </div>
                     );
                   }) : <div className="text-center">
-                    <p className="text-center fontSize_5">No items
+                    <p className="text-center fontSize_5 fontWeightBold">No items
                       found!</p><p className="margin12 onlyTopMargin">Go ahead and record a story.</p>
                   </div>}
                 </div>
