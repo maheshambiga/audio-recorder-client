@@ -10,9 +10,8 @@ import comedy_1 from './../../assets/images/icons/comedy_1.png';
 import drama_1 from './../../assets/images/icons/drama_1.png';
 import fantasy_1 from './../../assets/images/icons/fantasy_1.png';
 import horror_1 from './../../assets/images/icons/horror_1.png';
-import inspirational_2 from './../../assets/images/icons/inspirational_2.png';
+import inspirational_1 from './../../assets/images/icons/inspirational_1.png';
 import romance_2 from './../../assets/images/icons/romance_2.png';
-import selfhelp_1 from './../../assets/images/icons/selfhelp_1.png';
 import selfhelp_2 from './../../assets/images/icons/selfhelp_2.png';
 
 
@@ -52,9 +51,9 @@ class Dashboard extends Component {
       "Drama":[drama_1],
       "Horror":[horror_1],
       "Romance":[ romance_2],
-      "Inspirational":[inspirational_2],
+      "Inspirational":[inspirational_1],
       "Fantasy":[fantasy_1],
-      "Self-help":[selfhelp_1, selfhelp_2]
+      "Self-help":[selfhelp_2]
     }
   }
   getImage(categoryName){
@@ -115,13 +114,18 @@ class Dashboard extends Component {
                           <div className="dashBoardStoryBox ">
                             <div className="dashBoardStoryBoxImg" style={storyCoverPhoto}/>
                           </div>
-                          <div className="layout vertical color_000 start-justified margin24 onlyLeftMargin center-justified brealAll">
-                            <p className="fontSize_8 overFlowWrap ">{user.story.storyName}</p>
-                            <p className="fontSize_4 text-uppercase textItalic overFlowWrap">{user.story.genre}</p>
-                            <Link className="color_blue_two textUnderline margin12 onlyBottomMargin"
-                                  to={`story/${user._id}/${user.story._id}`}>Listen</Link>
-                            <a href="javascript:void(0);" className="color_blue_two textUnderline" onClick={()=>{this.onRemoveStoryHandler({userId:user._id, storyId:user.story._id})}}>Remove</a>
 
+                          <div className="layout vertical color_000 start-justified margin24 onlyLeftMargin center-justified brealAll">
+                            <p className="fontSize_8 overFlowWrap">{user.story.storyName}</p>
+                            <p className="fontSize_4 text-uppercase textItalic overFlowWrap">{user.story.genre}</p>
+                            <div className="layout horizontal start-justified center margin12 onlyBottomMargin">
+                              <div className="dashBoardStoryUserImage margin6 on onlyRightMargin">
+                                <img className="width-100 pull-left " src={user.picture}/>
+                              </div>
+                              <span className="pull-right color_FFF">{user.createdBy}</span>
+                            </div>
+                            <Link className="color_blue_two textUnderline"
+                                  to={`story/${user._id}/${user.story._id}`}>Listen</Link>
                           </div>
 
                         </div>
