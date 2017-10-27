@@ -16,9 +16,15 @@ const HomePage = (props) => {
       <div className="container ">
         <div className="row margin24 onlyTopMargin">
           <div className="col-xs-12 col-md-6 color_FFF">
-            <p className="fontSize_9_2 bold">Interesting stories to set your
+            <p className="fontSize_9_5 bold">Interesting stories to set your
                 mind in your wave.</p>
-            <p>Hear directly from the people who know it best. From tech to politics to creativity and more — whatever your interest, we’ve got you covered.</p>
+            <p>We
+              all love stories. We’re born for them. Stories affirm who we are. We all want
+              affirmations that our lives have meaning. And nothing does a greater
+              affirmation than when we connect through stories.</p>
+            <p>It can cross the barriers of
+              time, past, present and future, and allow us to experience the similarities
+              between ourselves and through others, real and imagined.</p>
           </div>
         </div>
         <div className="row" style={{ position: "relative", top: "60px" }}>
@@ -28,7 +34,6 @@ const HomePage = (props) => {
             <button className="button primary large"
               onClick={onClickLearnMoreHandler}>Learn more
             </button></div>
-
         </div>
       </div>
     </div>

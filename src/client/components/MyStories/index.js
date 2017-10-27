@@ -3,30 +3,17 @@ import Loader from '../common/Loader';
 import { Link } from 'react-router';
 
 import adventure_1 from './../../assets/images/icons/adventure_1.png';
-import adventure_2 from './../../assets/images/icons/adventure_2.png';
-import adventure_3 from './../../assets/images/icons/adventure_3.png';
 import bedtime_1 from './../../assets/images/icons/bedtime_1.png';
 import bedtime_2 from './../../assets/images/icons/bedtime_2.png';
 import bedtime_3 from './../../assets/images/icons/bedtime_3.png';
 import comedy_1 from './../../assets/images/icons/comedy_1.png';
-import comedy_2 from './../../assets/images/icons/comedy_2.png';
 import drama_1 from './../../assets/images/icons/drama_1.png';
-import drama_2 from './../../assets/images/icons/drama_2.png';
 import fantasy_1 from './../../assets/images/icons/fantasy_1.png';
-import fantasy_2 from './../../assets/images/icons/fantasy_2.png';
-import fantasy_3 from './../../assets/images/icons/fantasy_3.png';
 import horror_1 from './../../assets/images/icons/horror_1.png';
-import horror_2 from './../../assets/images/icons/horror_2.png';
-import horror_3 from './../../assets/images/icons/horror_3.png';
-import inspirational_1 from './../../assets/images/icons/inspirational_1.png';
 import inspirational_2 from './../../assets/images/icons/inspirational_2.png';
-import inspirational_3 from './../../assets/images/icons/inspirational_3.png';
-import romance_1 from './../../assets/images/icons/romance_1.png';
 import romance_2 from './../../assets/images/icons/romance_2.png';
-import romance_3 from './../../assets/images/icons/romance_3.png';
 import selfhelp_1 from './../../assets/images/icons/selfhelp_1.png';
 import selfhelp_2 from './../../assets/images/icons/selfhelp_2.png';
-import selfhelp_3 from './../../assets/images/icons/selfhelp_3.png';
 
 class MyStories extends Component {
   constructor (props) {
@@ -56,15 +43,15 @@ class MyStories extends Component {
   }
   getImages(){
     return {
-      "Adventure":[adventure_1, adventure_2, adventure_3],
+      "Adventure":[adventure_1],
       "Bedtime":[bedtime_1, bedtime_2, bedtime_3],
-      "Comedy":[comedy_1, comedy_2],
-      "Drama":[drama_1, drama_2],
-      "Horror":[horror_1, horror_2, horror_3],
-      "Romance":[romance_1, romance_2, romance_3],
-      "Inspirational":[inspirational_1, inspirational_2, inspirational_3],
-      "Fantasy":[fantasy_1, fantasy_2, fantasy_3],
-      "Self-help":[selfhelp_1, selfhelp_2, selfhelp_3]
+      "Comedy":[comedy_1],
+      "Drama":[drama_1],
+      "Horror":[horror_1],
+      "Romance":[ romance_2],
+      "Inspirational":[inspirational_2],
+      "Fantasy":[fantasy_1],
+      "Self-help":[selfhelp_1, selfhelp_2]
     }
   }
   getImage(categoryName){
@@ -110,7 +97,6 @@ class MyStories extends Component {
                     </select>
                     </span>
                   </div>
-
                 </div>
                 <div className="row margin36 onlyTopMargin">
                   {result.data.length > 0 ? result.data.map((user, id) => {
