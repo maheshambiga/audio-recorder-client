@@ -122,7 +122,7 @@ class Dashboard extends Component {
                               <div className="dashBoardStoryUserImage margin6 on onlyRightMargin">
                                 <img className="width-100 pull-left " src={user.picture}/>
                               </div>
-                              <span className="pull-right color_FFF">{user.createdBy}</span>
+                              <span className="pull-right">{user.createdBy}</span>
                             </div>
                             <Link className="color_blue_two textUnderline"
                                   to={`story/${user._id}/${user.story._id}`}>Listen</Link>
