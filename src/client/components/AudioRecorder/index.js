@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StoryForm from './StoryForm';
 import Main from './recorderjs/main';
-
+import Loader from '../common/Loader';
 
 class AudioRecorder extends Component {
   constructor (props) {
@@ -103,9 +103,12 @@ class AudioRecorder extends Component {
     clearInterval(this.timer);
   }
   render () {
+    const {isFetching, error, result} = this.props;
+
     const btnLabel = (this.state.isRecording) ? 'Save' : 'Record';
     return (
       <section className="background_959595 vh91 audioRecorderTreeTech">
+        {isFetching === true && error === null && <Loader/>}
 
         {this.state.showForm && <div className="overlay modalContent">
           <div className="modalBody color_FFF">
