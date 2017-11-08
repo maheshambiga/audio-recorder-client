@@ -1,4 +1,4 @@
-const API_DOMAIN = 'https://story-telling-app-bfe0b.appspot.com/';
+const API_DOMAIN = 'https://story-telling-apis.herokuapp.com/';
 
 export const LOGIN_API = `${API_DOMAIN}api/v1/login`;
 export const SIGN_UP_API = `${API_DOMAIN}api/v1/signup`;
