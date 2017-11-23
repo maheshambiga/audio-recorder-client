@@ -35,13 +35,13 @@ class BurgerMenu extends Component {
         'label': 'Record a story',
         'link': '/record-audio',
         'iconClass': 'icon-mic',
-      },
+      }/*,
       {
         'id': 'stories',
         'label': 'Read Stories',
         'link': '/stories',
         'iconClass': 'icon-notebook',
-      }
+      }*/
 
     ];
   }
